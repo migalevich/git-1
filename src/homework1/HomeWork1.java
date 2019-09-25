@@ -4,51 +4,44 @@ import java.util.Scanner;
 
 public class HomeWork1 {
     public static void main(String[] args) {
-//        System.out.println("Мой вес на луне равен: " + myWeightOnMoon() + " Н"); // Задача1
-//        System.out.println("Массив {10, 20, 30, 40, 50, 60} увеличенный на 10%: " + java.util.Arrays.toString(increaseMassive())); // Задача2
-//        System.out.println("Палиндром? " + isPalindrome(56765)); // Задача3
-//        System.out.println("Четные числа от 1 до 100: "); // Задача4
-//        evenNumbers(); // Задача4
-//        System.out.println("Нечетные числа от 1 до 15: "); // Задача5
-//        oddNumbers(); // Задача5
-//        System.out.println("Четные числа от 1 до 100 (используя только цикл for): "); // Задача6
-//        evenNumbersFor(); // Задача6
-//        System.out.println("Сумма чисел от 20 до 200: " + sumOfNumbers()); // Задача7
-//        namesOfMounth();  // Задача8
-//        reversParametrs(); // Задача 9
-//        sumTwoNumbers(); // Задача 10
-//        maxNumber(); // Задача 11
-//        truefalse(); // Задача 12
-//        strConcat(); // Задача 13
-//        solveTwoNumbers(); // Задача 14
-//        getNumbersFor(); // Задача 15
-//        getNumbersWhile(); // Задача 15
-//        getNumbersDoWhile(); // Задача 15
-//        System.out.println(rowNumbersWithStep()); // Задача 16
-          System.out.println(java.util.Arrays.toString(divisionMassive())); // Задача 17
-//        getDolars(); // Задача 18
-//        System.out.println(howMuchHoursMinSecInDay()); // Advanced 2
+        System.out.println("Мой вес на луне равен: " + myWeightOnMoon() + " Н"); // Задача1
+        System.out.println("Массив {10, 20, 30, 40, 50, 60} увеличенный на 10%: " + java.util.Arrays.toString(increaseMassive())); // Задача2
+        System.out.println("Палиндром? " + isPalindrome(56765)); // Задача3
+        evenNumbers(); // Задача4
+        oddNumbers(); // Задача5
+        evenNumbersFor(); // Задача6
+        System.out.println("Сумма чисел от 20 до 200: " + sumOfNumbers()); // Задача7
+        namesOfMounth();  // Задача8
+        reversParametrs(); // Задача 9
+        sumTwoNumbers(); // Задача 10
+        maxNumber(); // Задача 11
+        truefalse(); // Задача 12
+        strConcat(); // Задача 13
+        solveTwoNumbers(); // Задача 14
+        getNumbersFor(); // Задача 15 (вариант for)
+        getNumbersWhile(); // Задача 15 (вариант while)
+        getNumbersDoWhile(); // Задача 15 (вариант do while)
+        System.out.println(rowNumbersWithStep()); // Задача 16
+        System.out.println(java.util.Arrays.toString(divisionMassive())); // Задача 17
+        getDolars(); // Задача 18
+        System.out.println(howMuchHoursMinSecInDay()); // Advanced 2
 
     }
 
     /* 1. Напишите программу, которая вычисляет ваш вес на Луне с учетом того, что сила тяжести равна 16% от силы тяжести на Земле.*/
     public static double myWeightOnMoon() {
         double gEarth = 9.807;
-        double g_moon = gEarth * 17 / 100;
-        // System.out.println("g_moon="+g_moon);
+        double gMoon = gEarth * 17 / 100;
         int myWeight = 52;
-        double F_earth, F_moon;
-        F_earth = myWeight * gEarth;
-        // System.out.println("F_earth="+F_earth);
-        F_moon = myWeight * g_moon;
-        // System.out.println("F_moon="+F_moon);
-        return F_moon;
+        double fMoon;
+        fMoon = myWeight * gMoon;
+        return fMoon;
     }
 
     /* 2. Напишите метод, который будет увеличивать каждый элемент массива на 10%. */
     public static int[] increaseMassive() {
-        int a[] = {10, 20, 30, 40, 50, 60};
-        int res[] = null;
+        int[] a = {10, 20, 30, 40, 50, 60};
+        int[] res = null;
         if (a != null) {
             res = new int[a.length];
             for (int i = 0; i < a.length; i++) {
@@ -78,6 +71,7 @@ public class HomeWork1 {
 
     /* 4. Вывести на экран все четные цифры от 1 до 100 (используйте остаток от деления) */
     public static void evenNumbers() {
+        System.out.println("Четные числа от 1 до 100: ");
         for (int i = 1; i < 100; i++) {
             if (i % 2 == 0) {
                 System.out.println(i);
@@ -87,6 +81,7 @@ public class HomeWork1 {
 
     /* 5. Вывести на  экран все нечетные цифры от 1 до 15 (используйте остаток от деления) */
     public static void oddNumbers() {
+        System.out.println("Нечетные числа от 1 до 15: ");
         for (int i = 1; i < 15; i++) {
             if (i % 2 != 0) {
                 System.out.println(i);
@@ -96,6 +91,7 @@ public class HomeWork1 {
 
     /* 6. Вывести на  экран все четные цифры от 1 до 100 не используя остаток от деления (используя только цикл for) */
     public static void evenNumbersFor() {
+        System.out.println("Четные числа от 1 до 100 (используя только цикл for): ");
         for (int i = 2; i < 100; i += 2) {
             System.out.println(i);
         }
@@ -233,8 +229,12 @@ public class HomeWork1 {
     public static void solveTwoNumbers() {
         int a = 5;
         int b = 6;
-        if (a>b) {a+=3;} else {b+=8;}
-        System.out.println("a = " + a + "; b = "+ b);
+        if (a > b) {
+            a += 3;
+        } else {
+            b += 8;
+        }
+        System.out.println("a = " + a + "; b = " + b);
     }
 
     /* 15. Выведете на экран все числа от 1 до 100 с помощью цикла (можно все три варианта в одной программе):
@@ -280,14 +280,14 @@ public class HomeWork1 {
         for (int i = min; i <= max; i += step) {
             res += i + " ";
         }
-        return "Результат: "+res;
+        return "Результат: " + res;
     }
 
     /* 17. Все элементы массива поделить на значение наибольшего элемента этого массива. */
     public static int[] divisionMassive() {
-        int a[] = {10, 20, 30, 40, 50, 60};
+        int[] a = {10, 20, 30, 40, 50, 60};
         int max = a[0];
-        int res[] = null;
+        int[] res = null;
         for (int i = 0; i < a.length; i++) {
             if (max < a[i]) {
                 max = a[i];
@@ -306,21 +306,21 @@ public class HomeWork1 {
         System.out.println("Введите колличество рублей: ");
         int rubls = scan.nextInt();
         double kurs = 2.10;
-        double res = rubls*kurs;
-        System.out.println("Колличество долларов: "+ res);
+        double res = rubls * kurs;
+        System.out.println("Колличество долларов: " + res);
     }
 
     /* -----------------------------------------------------------------------------------------------------------------*/
     /* Advanced 2.	Напишите программу, которая будет считать количество часов, минут и секунд в n-ном количестве суток.*/
     public static String howMuchHoursMinSecInDay() {
-        int DEFAULT_HOURS_VALUE = 24;
-        int DEFAULT_MINETS_VALUE = 60;
-        int DEFAULT_SECONDS_VALUE = 60;
+        int defhours = 24;
+        int defmins = 60;
+        int defsecs = 60;
         Scanner scan = new Scanner(System.in);
         int days = scan.nextInt();
-        int hours = DEFAULT_HOURS_VALUE * days;
-        int minets = DEFAULT_HOURS_VALUE * days * DEFAULT_MINETS_VALUE;
-        int seconds = DEFAULT_HOURS_VALUE * days * DEFAULT_MINETS_VALUE * DEFAULT_SECONDS_VALUE;
+        int hours = defhours * days;
+        int minets = defhours * days * defmins;
+        int seconds = defhours * days * defmins * defsecs;
         String res = "В " + days + " д.: " + hours + " ч., " + minets + " мин., " + seconds + " сек.";
         return res;
     }
