@@ -3,11 +3,14 @@ package tasks;
 
 import com.sun.deploy.security.SelectableSecurityManager;
 
-public class TasksMassives {
+public class TasksMissives {
     public static void main(String[] args) {
-        sortMassive();
-//        System.out.println(sumMassive());
-//        System.out.println(avgMassive());
+//        sortMassive(); // Task 1
+//        System.out.println(sumMassive()); // Task 2
+//        System.out.println(avgMassive()); // Task 4
+//        searchSpecificValue(); // Task 5
+//        searchIndex(); // Task 6
+        delElement(); // Task 7
     }
 
     //Task 1. Write a Java program to sort a numeric array and a string array.
@@ -28,7 +31,7 @@ public class TasksMassives {
                     System.out.println("min2 = " + min);
                     numericArray[i] = 1000;
                 }
-                }
+            }
             sortArray[j] = min;
             System.out.println("sortArray = " + java.util.Arrays.toString(sortArray));
             System.out.println("numericArray = " + java.util.Arrays.toString(numericArray));
@@ -58,12 +61,60 @@ public class TasksMassives {
         return sum / a.length;
     }
 
+    //Task 5.  Write a Java program to test if an array contains a specific value.
+    public static void searchSpecificValue() {
+        int[] a = {10, 20, 30, 40, 50, 60, 34, 5};
+        boolean temp = false;
+        for (int value : a) {
+            if (value == 50) {
+                temp = true;
+            }
+        }
+        if (temp == true) {
+            System.out.println("Массив содержит значение 50");
+        } else {
+            System.out.println("Массив не содержит значение 50");
+        } ;
+    }
+
+    //Task 6.  Write a Java program to find the index of an array element.
+    public static void searchIndex() {
+        int[] numericArray = {20, 40, 30, 10, 70, 50, 60};
+        int index = -1;
+        for (int i = 0; i < numericArray.length; i++){
+            if (numericArray[i] == 50) {
+                index=i;
+            }
+        }
+        if (index != -1) {
+            System.out.println("Индекс = " + index);
+        } else {
+            System.out.println("Массив не содержит значение 50");
+        }
+    }
+
+    //Task 7.  Write a Java program to remove a specific element from an array.
+    public static void delElement() {
+        int[] numericArray = {20, 40, 30, 10, 70, 50, 60};
+        for (int i = 0; i < numericArray.length; i++){
+            if (numericArray[i] == 70) {
+                numericArray[i]=0;
+            }
+        }
+        for (int i = 2; i < numericArray.length-1; i++){
+            numericArray[i-1] = numericArray[i];
+        }
+        System.out.println("numericArray="+java.util.Arrays.toString(numericArray));
+    }
+
 }
 
 
-//Task 5.  Write a Java program to test if an array contains a specific value.
-//Task 6.  Write a Java program to find the index of an array element.
-//Task 7.  Write a Java program to remove a specific element from an array.
+
+
+
+
+
 //Task 8.  Write a Java program to copy an array by iterating the array.
 //Task 9.  Write a Java program to insert an element (specific position) into an array.
 //Task 10. Write a Java program to find the maximum and minimum value of an array.
