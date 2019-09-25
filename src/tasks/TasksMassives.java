@@ -1,6 +1,8 @@
 package tasks;
 // много заданий по инициализации массивов на тесте
 
+import com.sun.deploy.security.SelectableSecurityManager;
+
 public class TasksMassives {
     public static void main(String[] args) {
         sortMassive();
@@ -10,43 +12,53 @@ public class TasksMassives {
 
     //Task 1. Write a Java program to sort a numeric array and a string array.
 
-   public static void sortMassive() {
-       int numericArray[] = {20, 40, 30, 10, 70, 60};
-       int min = numericArray[0];
-       for (int i = 0; i < numericArray.length; i++) {
-           if (min > numericArray[i]) {
-               min = numericArray[i];
-           }
-       }
-       System.out.println("min"+min);
-       for (int s : numericArray) {
-           System.out.println(s);
-       }
-   }
+    private static void sortMassive() {
+        int[] numericArray = {20, 40, 30, 10, 70, 60};
+        int[] sortArray = new int[numericArray.length];
+        int min = numericArray[0];
+        for (int j = 0; j < numericArray.length; j++) {
+            min = numericArray[j];
+            System.out.println("min1 = " + min);
+            for (int i = 0; i < numericArray.length; i++) {
+                System.out.println("numericArray[i] = " + numericArray[i]);
+                if (min > numericArray[i]) {
+                    System.out.println("<<<<<<<<<<<<<<<< IF >>>>>>>>>>>>>>>>>>");
+                    System.out.println("numericArray[i] = " + numericArray[i]);
+                    min = numericArray[i];
+                    System.out.println("min2 = " + min);
+                    numericArray[i] = 1000;
+                }
+                }
+            sortArray[j] = min;
+            System.out.println("sortArray = " + java.util.Arrays.toString(sortArray));
+            System.out.println("numericArray = " + java.util.Arrays.toString(numericArray));
+        }
+//       for (int s : numericArray) {
+//           System.out.println(s);
+//       }
+    }
 
     //Task 2. Write a Java program to sum values of an array.
     public static int sumMassive() {
-        int a[] = {10, 20, 30, 40, 50, 60};
+        int[] a = {10, 20, 30, 40, 50, 60};
         int sum = 0;
-        for (int i = 0; i < a.length; i++) {
-            sum += a[i];
+        for (int value : a) {
+            sum += value;
         }
         return sum;
     }
 
     //Task 4.  Write a Java program to calculate the average value of array elements.
     public static int avgMassive() {
-        int a[] = {10, 20, 30, 40, 50, 60};
+        int[] a = {10, 20, 30, 40, 50, 60};
         int sum = 0;
         for (int i = 0; i < a.length; i++) {
             sum += a[i];
         }
-        int avgvalue= sum/a.length;
-        return avgvalue;
+        return sum / a.length;
     }
 
 }
-
 
 
 //Task 5.  Write a Java program to test if an array contains a specific value.
