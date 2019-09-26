@@ -1,14 +1,11 @@
 package tasks;
 // много заданий по инициализации массивов на тесте
 
-import com.sun.deploy.security.SelectableSecurityManager;
-import com.sun.deploy.util.ArrayUtil;
-
 import java.util.*;
 
 public class TasksMissives {
     public static void main(String[] args) {
-//        sortMassive(); // Task 1
+        sortMassive(); // Task 1
 //        mySortMassive(); // Task 1
 //        bubbleSort(); // Task 1
 //        System.out.println(sumMassive()); // Task 2
@@ -25,7 +22,7 @@ public class TasksMissives {
     }
 
     //Task 1. Write a Java program to sort a numeric array and a string array.
-    private static void mySortMassive() {
+    public static void mySortMassive() {
         int[] numericArray = {20, 40, 30, 10, 70, 60};
         System.out.println("Массив до сортировки = " + Arrays.toString(numericArray));
         for (int j = 0; j < numericArray.length; j++) {
@@ -149,10 +146,6 @@ public class TasksMissives {
         System.out.println("Массив после удаления эллемента er = " + Arrays.toString(stringArraydel));
     }
 
-//    public static void  delElMassive() {
-//        String[] stringArray = {"aa", "b", "g", "ff", "er", "n", "t"};
-//        stringArray.remove
-//    }
 
 
     //Task 8.  Write a Java program to copy an array by iterating the array.
