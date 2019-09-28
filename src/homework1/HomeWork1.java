@@ -4,34 +4,33 @@ import java.util.Scanner;
 
 public class HomeWork1 {
     public static void main(String[] args) {
-        System.out.println("Мой вес на луне равен: " + myWeightOnMoon() + " Н"); // Задача1
-        System.out.println("Массив {10, 20, 30, 40, 50, 60} увеличенный на 10%: " + java.util.Arrays.toString(increaseMassive())); // Задача2
-        System.out.println("Палиндром? " + isPalindrome(56765)); // Задача3
-        evenNumbers(); // Задача4
-        oddNumbers(); // Задача5
-        evenNumbersFor(); // Задача6
-        System.out.println("Сумма чисел от 20 до 200: " + sumOfNumbers()); // Задача7
-        namesOfMounth();  // Задача8
-        reversParametrs(); // Задача 9
-        sumTwoNumbers(); // Задача 10
-        maxNumber(); // Задача 11
-        truefalse(); // Задача 12
-        strConcat(); // Задача 13
-        solveTwoNumbers(); // Задача 14
-        getNumbersFor(); // Задача 15 (вариант for)
-        getNumbersWhile(); // Задача 15 (вариант while)
-        getNumbersDoWhile(); // Задача 15 (вариант do while)
-        System.out.println(rowNumbersWithStep()); // Задача 16
-        System.out.println(java.util.Arrays.toString(divisionMassive())); // Задача 17
-        getDolars(); // Задача 18
-        System.out.println(howMuchHoursMinSecInDay()); // Advanced 2
+        System.out.println("My wight on the moon: " + myWeightOnMoon() + " Н"); // Task 1
+        System.out.println("Massive {10, 20, 30, 40, 50, 60} increased 10%: " + java.util.Arrays.toString(increaseMassive())); // Task 2
+        System.out.println("Is palindrome? " + isPalindrome(56765)); // Task 3
+        evenNumbers(); // Task 4
+        oddNumbers(); // Task 5
+        evenNumbersFor(); // Task 6
+        System.out.println("Sum of numbers from 20 to 200: " + sumOfNumbers()); // Task 7
+        namesOfMonths();  // Task 8
+        reversParametrs(); // Task 9
+        sumTwoNumbers(); // Task 10
+        maxNumber(); // Task 11
+        trueFalse(); // Task 12
+        strConcat(); // Task 13
+        solveTwoNumbers(); // Task 14
+        getNumbersFor(); // Task 15 (for)
+        getNumbersWhile(); // Task 15 (do while)
+        System.out.println(rowNumbersWithStep()); // Task 16
+        System.out.println(java.util.Arrays.toString(divisionMassive())); // Task 17
+        getDollars(); // Task 18
+        System.out.println(howMuchHoursMinSecInDay()); // Task Advanced 2
 
     }
 
     /* 1. Напишите программу, которая вычисляет ваш вес на Луне с учетом того, что сила тяжести равна 16% от силы тяжести на Земле.*/
-    public static double myWeightOnMoon() {
+    private static double myWeightOnMoon() {
         double gEarth = 9.807;
-        double gMoon = gEarth * 17 / 100;
+        double gMoon = gEarth * 16 / 100;
         int myWeight = 52;
         double fMoon;
         fMoon = myWeight * gMoon;
@@ -39,7 +38,7 @@ public class HomeWork1 {
     }
 
     /* 2. Напишите метод, который будет увеличивать каждый элемент массива на 10%. */
-    public static int[] increaseMassive() {
+    private static int[] increaseMassive() {
         int[] a = {10, 20, 30, 40, 50, 60};
         int[] res = null;
         if (a != null) {
@@ -54,14 +53,14 @@ public class HomeWork1 {
     }
 
     /* 3. Напишите метод, который будет проверять является ли число палиндромом (одинаково читающееся в обоих направлениях). */
-    public static boolean isPalindrome(int integer) {
-        int a = integer; // изначальное число запоминаем
+    private static boolean isPalindrome(int integer) {
+        int a = integer;
         int reverse = 0;
-        // переворачиваем число
+        // revers
         while (a != 0) {
             int remainder = a % 10;
             //   System.out.println("remainder="+remainder);
-            reverse = reverse * 10 + remainder; // умножаем на 10 и добавляем остаток
+            reverse = reverse * 10 + remainder;
             //   System.out.println("reverse="+reverse);
             a = a / 10;
             //  System.out.println("a="+a);
@@ -70,8 +69,8 @@ public class HomeWork1 {
     }
 
     /* 4. Вывести на экран все четные цифры от 1 до 100 (используйте остаток от деления) */
-    public static void evenNumbers() {
-        System.out.println("Четные числа от 1 до 100: ");
+    private static void evenNumbers() {
+        System.out.println("Even numbers from 1 to 100: ");
         for (int i = 1; i < 100; i++) {
             if (i % 2 == 0) {
                 System.out.println(i);
@@ -80,8 +79,8 @@ public class HomeWork1 {
     }
 
     /* 5. Вывести на  экран все нечетные цифры от 1 до 15 (используйте остаток от деления) */
-    public static void oddNumbers() {
-        System.out.println("Нечетные числа от 1 до 15: ");
+    private static void oddNumbers() {
+        System.out.println("Odd numbers from 1 to 15: ");
         for (int i = 1; i < 15; i++) {
             if (i % 2 != 0) {
                 System.out.println(i);
@@ -90,15 +89,15 @@ public class HomeWork1 {
     }
 
     /* 6. Вывести на  экран все четные цифры от 1 до 100 не используя остаток от деления (используя только цикл for) */
-    public static void evenNumbersFor() {
-        System.out.println("Четные числа от 1 до 100 (используя только цикл for): ");
+    private static void evenNumbersFor() {
+        System.out.println("Even numbers from 1 to 100 (used only for): ");
         for (int i = 2; i < 100; i += 2) {
             System.out.println(i);
         }
     }
 
     /* 7. Посчитать сумму цифр от 20 до 200 и результат вывести на экран (используя цикл for) */
-    public static int sumOfNumbers() {
+    private static int sumOfNumbers() {
         int sum = 0;
         for (int i = 20; i < 200; i++) {
             sum += i;
@@ -107,7 +106,7 @@ public class HomeWork1 {
     }
 
     /* 8. Пройти циклом по числам от 1 до 12 и вывести название месяца, соответствующее каждому числу (используя цикл и оператор if else) */
-    public static void namesOfMounth() {
+    private static void namesOfMonths() {
         for (int i = 1; i <= 12; i++) {
             if (i == 1) {
                 System.out.println(i + " January");
@@ -158,7 +157,7 @@ public class HomeWork1 {
     }
 
     /*9 Объявить 2 переменных целого типа. Необходимо поменять значения переменных так, чтобы значение первой оказалось во второй, а второй - в первой.*/
-    public static void reversParametrs() {
+    private static void reversParametrs() {
         int a = 5;
         int b = 6;
         System.out.println("Переменные до реверса:");
@@ -173,7 +172,7 @@ public class HomeWork1 {
     }
 
     /* 10. Напишите программу с тремя переменными целого типа, первым двум присвойте значения, а третьей переменной присвойте их сумму. Выведете значение третей переменной на экран. */
-    public static void sumTwoNumbers() {
+    private static void sumTwoNumbers() {
         int a = 5;
         int b = 6;
         int sum = a + b;
@@ -181,7 +180,7 @@ public class HomeWork1 {
     }
 
     /* 11. Напишите программу с тремя переменными целого типа. Определить какое из них наибольшее. */
-    public static void maxNumber() {
+    private static void maxNumber() {
         int a = 5;
         int b = 6;
         int c = 11;
@@ -200,15 +199,15 @@ public class HomeWork1 {
 
     /* 12. Напишите программу, в которой используются две переменные логического типа (boolean), присвойте им значения и выведете для каждой переменной на экран строку "истина",
      если переменная имеет значение true и "ложь", если переменная имеет значение false. */
-    public static void truefalse() {
+    private static void trueFalse() {
         boolean a = true;
         boolean b = false;
-        if (a == true) {
+        if (a) {
             System.out.println("a (" + a + ") = истина");
         } else {
             System.out.println("a (" + a + ")= ложь");
         }
-        if (b == true) {
+        if (b) {
             System.out.println("b (" + b + ") = истина");
         } else {
             System.out.println("b (" + b + ") = ложь");
@@ -217,7 +216,7 @@ public class HomeWork1 {
 
     /* 13. Напишите программу, где двум строковым переменным присваиваются значения, третей же строковой переменных присвойте объединение (конкатенацию) двух предыдущих строк.
     Затем напечатайте значение третьей строковой переменной. */
-    public static void strConcat() {
+    private static void strConcat() {
         String a = "Hello, ";
         String b = "World!!!";
         String c = a + b;
@@ -226,7 +225,7 @@ public class HomeWork1 {
 
     /*14. Создайте программу с двумя переменными целого типа, присвойте им значения, если первая переменная больше второй, то увеличьте её значение на 3, иначе увеличьте значение второй переменной на 8.
     В конце программы выведите значения обоих чисел на экран.*/
-    public static void solveTwoNumbers() {
+    private static void solveTwoNumbers() {
         int a = 5;
         int b = 6;
         if (a > b) {
@@ -242,13 +241,13 @@ public class HomeWork1 {
     while
     do while
     */
-    public static void getNumbersFor() {
+    private static void getNumbersFor() {
         for (int i = 1; i < 100; i++) {
             System.out.println(i);
         }
     }
 
-    public static void getNumbersWhile() {
+    private static void getNumbersWhile() {
         int i = 1;
         while (i < 100) {
             System.out.println(i);
@@ -256,7 +255,7 @@ public class HomeWork1 {
         }
     }
 
-    public static void getNumbersDoWhile() {
+    private static void getNumbersDoWhile() {
         int i = 1;
         do {
             System.out.println(i);
@@ -268,29 +267,29 @@ public class HomeWork1 {
     /* 16. Вывести на экран ряд натуральных чисел от минимума до максимума с шагом. Например, если минимум 10, максимум 35, шаг 5, то вывод должен быть таким: 10 15 20 25 30 35.
     Минимум, максимум и шаг указываются пользователем (можно захардкодить). */
 
-    public static String rowNumbersWithStep() {
+    private static String rowNumbersWithStep() {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Введите минимальное число: ");
+        System.out.println("Enter the minimum number: ");
         int min = scan.nextInt();
-        System.out.println("Введите максимальное число: ");
+        System.out.println("Enter the maximum number: ");
         int max = scan.nextInt();
-        System.out.println("Введите шаг: ");
+        System.out.println("Enter the step: ");
         int step = scan.nextInt();
         String res = "";
         for (int i = min; i <= max; i += step) {
             res += i + " ";
         }
-        return "Результат: " + res;
+        return "Result: " + res;
     }
 
     /* 17. Все элементы массива поделить на значение наибольшего элемента этого массива. */
-    public static int[] divisionMassive() {
+    private static int[] divisionMassive() {
         int[] a = {10, 20, 30, 40, 50, 60};
         int max = a[0];
         int[] res = null;
-        for (int i = 0; i < a.length; i++) {
-            if (max < a[i]) {
-                max = a[i];
+        for (int value : a) {
+            if (max < value) {
+                max = value;
             }
         }
         res = new int[a.length];
@@ -301,28 +300,28 @@ public class HomeWork1 {
     }
 
     /* 18. Напишите метод переводящий рубли в доллары по заданному курсу. В качестве аргументов укажите кол-во рублей и курс. */
-    public static void getDolars() {
+    private static void getDollars() {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Введите колличество рублей: ");
+        System.out.println("Enter the rubles: ");
         int rubls = scan.nextInt();
         double kurs = 2.10;
-        double res = rubls * kurs;
-        System.out.println("Колличество долларов: " + res);
+        double res = rubls / kurs;
+        System.out.println("Dollars: " + res);
     }
 
     /* -----------------------------------------------------------------------------------------------------------------*/
     /* Advanced 2.	Напишите программу, которая будет считать количество часов, минут и секунд в n-ном количестве суток.*/
-    public static String howMuchHoursMinSecInDay() {
-        int defhours = 24;
-        int defmins = 60;
-        int defsecs = 60;
+    private static String howMuchHoursMinSecInDay() {
+        int defHours = 24;
+        int defMins = 60;
+        int defSecs = 60;
         Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the numbers of days: ");
         int days = scan.nextInt();
-        int hours = defhours * days;
-        int minets = defhours * days * defmins;
-        int seconds = defhours * days * defmins * defsecs;
-        String res = "В " + days + " д.: " + hours + " ч., " + minets + " мин., " + seconds + " сек.";
-        return res;
+        int hours = defHours * days;
+        int minutes = defHours * days * defMins;
+        int seconds = defHours * days * defMins * defSecs;
+        return "In " + days + " days: " + hours + " hours, " + minutes + " minutes, " + seconds + " secs";
     }
 }
 
