@@ -3,19 +3,17 @@ package homework3;
 import java.util.Objects;
 
 public class Ship {
-
-    public int price;
-    public double weight;
-
-    private String shipModel;
+    private int price;
+    private double weight = 145562.25;
+    private String model;
     private String ownerFirstName;
     private String ownerSecondName;
 
     public Ship() {
     }
 
-    public Ship(String shipModel, int price, String ownerFirstName, String ownerSecondName) {
-        this.shipModel = shipModel;
+    public Ship(String model, int price, String ownerFirstName, String ownerSecondName) {
+        this.model = model;
         this.price = price;
         this.ownerFirstName = ownerFirstName;
         this.ownerSecondName = ownerSecondName;
@@ -37,12 +35,12 @@ public class Ship {
         this.weight = weight;
     }
 
-    public String getShipModel() {
-        return shipModel;
+    public String getmodel() {
+        return model;
     }
 
-    public void setShipModel(String shipModel) {
-        this.shipModel = shipModel;
+    public void setmodel(String model) {
+        this.model = model;
     }
 
     public String getOwnerFirstName() {
@@ -68,14 +66,14 @@ public class Ship {
         Ship ship = (Ship) o;
         return price == ship.price &&
                 Double.compare(ship.weight, weight) == 0 &&
-                Objects.equals(shipModel, ship.shipModel) &&
+                Objects.equals(model, ship.model) &&
                 Objects.equals(ownerFirstName, ship.ownerFirstName) &&
                 Objects.equals(ownerSecondName, ship.ownerSecondName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, weight, shipModel, ownerFirstName, ownerSecondName);
+        return Objects.hash(price, weight, model, ownerFirstName, ownerSecondName);
     }
 
     @Override
@@ -83,7 +81,7 @@ public class Ship {
         return "Ship{" +
                 "price=" + price +
                 ", weight=" + weight +
-                ", shipModel='" + shipModel + '\'' +
+                ", model='" + model + '\'' +
                 ", ownerFirstName='" + ownerFirstName + '\'' +
                 ", ownerSecondName='" + ownerSecondName + '\'' +
                 '}';
