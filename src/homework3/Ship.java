@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Ship {
     private int price;
     private double weight = 145562.25;
+
     private String model;
     private String ownerFirstName;
     private String ownerSecondName;
@@ -35,11 +36,11 @@ public class Ship {
         this.weight = weight;
     }
 
-    public String getmodel() {
+    public String getModel() {
         return model;
     }
 
-    public void setmodel(String model) {
+    public void setModel(String model) {
         this.model = model;
     }
 
