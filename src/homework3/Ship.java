@@ -2,22 +2,24 @@ package homework3;
 
 import java.util.Objects;
 
-public class Ship {
+public class Ship extends FloatingCraft implements ShipFunctionalityInterface, ShipAppearanceInterface {
     private int price;
     private double weight = 145562.25;
 
     private String model;
     private String ownerFirstName;
     private String ownerSecondName;
+    private ShipType typeShip;
 
     public Ship() {
     }
 
-    public Ship(String model, int price, String ownerFirstName, String ownerSecondName) {
+    public Ship(String model, int price, String ownerFirstName, String ownerSecondName, ShipType typeShip) {
         this.model = model;
         this.price = price;
         this.ownerFirstName = ownerFirstName;
         this.ownerSecondName = ownerSecondName;
+        this.typeShip = typeShip;
     }
 
     public int getPrice() {
@@ -60,6 +62,14 @@ public class Ship {
         this.ownerSecondName = ownerSecondName;
     }
 
+    public ShipType getTypeShip() {
+        return typeShip;
+    }
+
+    public void setTypeShip(ShipType typeShip) {
+        this.typeShip = typeShip;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -69,12 +79,13 @@ public class Ship {
                 Double.compare(ship.weight, weight) == 0 &&
                 Objects.equals(model, ship.model) &&
                 Objects.equals(ownerFirstName, ship.ownerFirstName) &&
-                Objects.equals(ownerSecondName, ship.ownerSecondName);
+                Objects.equals(ownerSecondName, ship.ownerSecondName) &&
+                Objects.equals(typeShip, ship.typeShip);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, weight, model, ownerFirstName, ownerSecondName);
+        return Objects.hash(price, weight, model, ownerFirstName, ownerSecondName, typeShip);
     }
 
     @Override
@@ -85,7 +96,27 @@ public class Ship {
                 ", model='" + model + '\'' +
                 ", ownerFirstName='" + ownerFirstName + '\'' +
                 ", ownerSecondName='" + ownerSecondName + '\'' +
+                ", typeShip='" + typeShip + '\'' +
                 '}';
     }
 
+    @Override
+    public void getSound() {
+        System.out.println("Beep, beep!");
+    }
+
+    @Override
+    public String fight() {
+        return null;
+    }
+
+    @Override
+    public String move() {
+        return "I can move!";
+    }
+
+    @Override
+    public String commentFunctionality() {
+        return null;
+    }
 }
