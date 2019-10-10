@@ -119,4 +119,19 @@ public class Ship extends FloatingCraft implements ShipFunctionalityInterface, S
     public String commentFunctionality() {
         return null;
     }
+
+    @Override
+    public String getColor() {
+        if (this.typeShip.name().equals("WARSHIP")) {
+            return "Red";
+        } else {
+            if (this.typeShip.name().equals("CIVIL_SHIP")) {
+                return "Green";
+            } else {
+                return "Blue";
+            }
+        }
+    }
+
+
 }

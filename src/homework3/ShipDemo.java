@@ -11,11 +11,11 @@ public class ShipDemo {
 //        Ship ship2 = new Ship();
 //        System.out.println(ship2);
         Ship[] ships = new Ship[5];
-        ships[0] = new Ship("H34", 346, "Alex", "Ivanov", ShipType.DOUBLE_MAST);
-        ships[1] = new Ship("T55", 525, "Irina", "Kotova", ShipType.SINGL_MAST);
-        ships[2] = new Ship("M65", 564, "Anna", "Romanova", ShipType.THREE_MAST);
-        ships[3] = new Ship("R89", 234, "Ivan", "Kim", ShipType.FOUR_MAST);
-        ships[4] = new Ship("H32", 456, "Alex", "Petrov", ShipType.SINGL_MAST);
+        ships[0] = new Ship("H34", 346, "Alex", "Ivanov", ShipType.WARSHIP);
+        ships[1] = new Ship("T55", 525, "Irina", "Kotova", ShipType.CIVIL_SHIP);
+        ships[2] = new Ship("M65", 564, "Anna", "Romanova", ShipType.WARSHIP);
+        ships[3] = new Ship("R89", 234, "Ivan", "Kim", ShipType.CIVIL_SHIP);
+        ships[4] = new Ship("H32", 456, "Alex", "Petrov", ShipType.CIVIL_SHIP);
 //        System.out.println(Arrays.toString(ships));
 
 
