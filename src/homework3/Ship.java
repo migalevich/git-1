@@ -11,10 +11,10 @@ public class Ship extends FloatingCraft implements ShipFunctionalityInterface, S
     private String ownerSecondName;
     private ShipType typeShip;
 
-    public Ship() {
+    Ship() {
     }
 
-    public Ship(String model, int price, String ownerFirstName, String ownerSecondName, ShipType typeShip) {
+    Ship(String model, int price, String ownerFirstName, String ownerSecondName, ShipType typeShip) {
         this.model = model;
         this.price = price;
         this.ownerFirstName = ownerFirstName;
@@ -22,7 +22,7 @@ public class Ship extends FloatingCraft implements ShipFunctionalityInterface, S
         this.typeShip = typeShip;
     }
 
-    public int getPrice() {
+    int getPrice() {
         return price;
     }
 
@@ -46,7 +46,7 @@ public class Ship extends FloatingCraft implements ShipFunctionalityInterface, S
         this.model = model;
     }
 
-    public String getOwnerFirstName() {
+    String getOwnerFirstName() {
         return ownerFirstName;
     }
 

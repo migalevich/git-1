@@ -4,30 +4,50 @@ import java.util.*;
 
 public class TasksMissives {
     public static void main(String[] args) {
+        System.out.println("------- Task 1 -------");
         sortMassive(); // Task 1
         mySortMassive(); // Task 1
         bubbleSort(); // Task 1
+        System.out.println("------- Task 2 -------");
         System.out.println(sumMassive()); // Task 2
+        System.out.println("------- Task 4 -------");
         System.out.println(avgMassive()); // Task 4
+        System.out.println("------- Task 5 -------");
         searchSpecificValue(); // Task 5
+        System.out.println("------- Task 6 -------");
         searchIndex(); // Task 6
+        System.out.println("------- Task 7 -------");
         delElement(); // Task 7
+        System.out.println("------- Task 8 -------");
         copyMassive(); // Task 8
+        System.out.println("------- Task 9 -------");
         insElement(); // Task 9
+        System.out.println("------- Task 10 -------");
         minMaxElement(); // Task 10
+        System.out.println("------- Task 11 -------");
         reverseMassive(); // Task 11
+        System.out.println("------- Task 12 -------");
         findDuplicateInt(); // Task 12
+        System.out.println("------- Task 13 -------");
         findDuplicateString(); // Task 13
+        System.out.println("------- Task 14 -------");
         findDuplicateBetweenTwoArraysString(); // Task 14
+        System.out.println("------- Task 15 -------");
         findDuplicateBetweenTwoArraysInt(); // Task 15
+        System.out.println("------- Task 16 -------");
         delArrayDuplicate(); // Task 16
+        System.out.println("------- Task 17 -------");
         secondMaxElement(); // Task 17
+        System.out.println("------- Task 18 -------");
         secondMinElement(); // Task 18
+        System.out.println("------- Task 19 -------");
         doTwoMatrices(); // Task 19
+        System.out.println("------- Task 20 -------");
         arrayList(); // Task 20
     }
 
     //Task 1. Write a Java program to sort a numeric array and a string array.
+    /* my own algorithm */
     private static void mySortMassive() {
         int[] numericArray = {20, 40, 30, 10, 70, 60};
         System.out.println("Array before sorting = " + Arrays.toString(numericArray));
@@ -46,7 +66,7 @@ public class TasksMissives {
         System.out.println("Array after sorting = " + Arrays.toString(numericArray));
     }
 
-
+    /* bubble sort */
     private static void bubbleSort() {
         int[] numericArray = {20, 40, 30, 10, 70, 60};
         for (int i = numericArray.length - 1; i > 0; i--) {
@@ -61,7 +81,7 @@ public class TasksMissives {
         System.out.println("Array after sorting bubble sort = " + Arrays.toString(numericArray));
     }
 
-
+    /* using sort method class Arrays */
     private static void sortMassive() {
         int[] numericArray = {20, 40, 30, 10, 70, 60};
         String[] stringArray = {"as", "ff", "gh", "hy", "gi", "ar"};
@@ -132,7 +152,7 @@ public class TasksMissives {
         String[] stringArray = {"aa", "b", "g", "ff", "er", "n", "t"};
         System.out.println("Array before deleting element er = " + Arrays.toString(stringArray));
         int index = -1;
-        String[] stringArraydel = new String[stringArray.length - 1];
+        String[] stringArrayDel = new String[stringArray.length - 1];
         for (int i = 0; i < stringArray.length; i++) {
             if (stringArray[i].equals("er")) {
                 stringArray[i] = null;
@@ -140,47 +160,47 @@ public class TasksMissives {
             }
         }
         if (index != -1) {
-            for (int i = 0; i < stringArraydel.length; i++) {
+            for (int i = 0; i < stringArrayDel.length; i++) {
                 if (i < index) {
-                    stringArraydel[i] = stringArray[i];
+                    stringArrayDel[i] = stringArray[i];
                 }
                 if (i >= index) {
-                    stringArraydel[i] = stringArray[i + 1];
+                    stringArrayDel[i] = stringArray[i + 1];
                 }
             }
         }
-        System.out.println("Array after deleting element er = " + Arrays.toString(stringArraydel));
+        System.out.println("Array after deleting element er = " + Arrays.toString(stringArrayDel));
     }
 
 
     //Task 8.  Write a Java program to copy an array by iterating the array.
     private static void copyMassive() {
         String[] stringArray = {"aa", "b", "g", "ff", "er", "n", "t"};
-        String[] stringArraycopy = new String[stringArray.length];
+        String[] stringArrayCopy = new String[stringArray.length];
         for (int i = 0; i < stringArray.length; i++) {
-            stringArraycopy[i] = stringArray[i];
+            stringArrayCopy[i] = stringArray[i];
         }
-        System.out.println("stringArraycopy=" + Arrays.toString(stringArraycopy));
+        System.out.println("stringArrayCopy=" + Arrays.toString(stringArrayCopy));
     }
 
     //Task 9.  Write a Java program to insert an element (specific position) into an array.
     private static void insElement() {
         String[] stringArray = {"aa", "b", "g", "ff", "er", "n", "t"};
         int position = 5;
-        String[] stringArrayins = new String[stringArray.length + 1];
-        for (int i = 0; i < stringArrayins.length; i++) {
+        String[] stringArrayIns = new String[stringArray.length + 1];
+        for (int i = 0; i < stringArrayIns.length; i++) {
             if (i < position) {
-                stringArrayins[i] = stringArray[i];
+                stringArrayIns[i] = stringArray[i];
             }
             if (i == position) {
-                stringArrayins[i] = "ins";
+                stringArrayIns[i] = "ins";
             }
             if (i > position) {
-                stringArrayins[i] = stringArray[i - 1];
+                stringArrayIns[i] = stringArray[i - 1];
             }
         }
-        System.out.println("Array before inserting element ins on 5 position = " + Arrays.toString(stringArray));
-        System.out.println("МArray after inserting element ins on 5 position = " + Arrays.toString(stringArrayins));
+        System.out.println("Array before inserting element ins on " + (position+1) + " position = " + Arrays.toString(stringArray));
+        System.out.println("Array after inserting element ins on "+ (position+1) +" position = " + Arrays.toString(stringArrayIns));
     }
 
     //Task 10. Write a Java program to find the maximum and minimum value of an array.
@@ -203,7 +223,7 @@ public class TasksMissives {
     //Task 11. Write a Java program to reverse an array of integer values.
     private static void reverseMassive() {
         int[] numericArray = {20, 40, 30, 10, 70, 50, 60, 54};
-        System.out.println("Befor revers = " + Arrays.toString(numericArray));
+        System.out.println("Before revers = " + Arrays.toString(numericArray));
         for (int i = 0; i < numericArray.length / 2; i++) {
             int temp = numericArray[numericArray.length - i - 1];
             numericArray[numericArray.length - i - 1] = numericArray[i];
@@ -240,10 +260,10 @@ public class TasksMissives {
     private static void findDuplicateBetweenTwoArraysString() {
         String[] stringArray1 = {"d", "t", "y", "e", "d", "h", "t", "a", "j", "x"};
         String[] stringArray2 = {"j", "k", "l", "r", "s", "m", "z", "q", "l", "y"};
-        for (int i = 0; i < stringArray1.length; i++) {
-            for (int j = 0; j < stringArray2.length; j++) {
-                if ((stringArray1[i].equals(stringArray2[j]))) {
-                    System.out.println("Duplicate = " + stringArray1[i]);
+        for (String value : stringArray1) {
+            for (String s : stringArray2) {
+                if ((value.equals(s))) {
+                    System.out.println("Duplicate = " + value);
                 }
             }
         }
@@ -346,8 +366,8 @@ public class TasksMissives {
         int[][] matrixClone = (int[][]) matrix.clone();
         System.out.println("Clone matrix: ");
         for (int[] ints : matrixClone) {
-            for (int j = 0; j < ints.length; j++) {
-                System.out.print(ints[j] + "\t");
+            for (int anInt : ints) {
+                System.out.print(anInt + "\t");
             }
             System.out.println();
         }
@@ -374,6 +394,7 @@ public class TasksMissives {
             list2.add(text);
         }
         System.out.println(list2);
+
     }
 
 }

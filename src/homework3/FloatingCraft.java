@@ -3,9 +3,9 @@ package homework3;
 import java.util.Objects;
 
 abstract class FloatingCraft {
-    public String typeFloatingCraft;
+    private String typeFloatingCraft;
 
-    public FloatingCraft() {
+    FloatingCraft() {
     }
 
     public FloatingCraft(String typeFloatingCraft) {

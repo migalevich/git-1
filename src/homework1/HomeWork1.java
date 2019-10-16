@@ -4,25 +4,44 @@ import java.util.Scanner;
 
 public class HomeWork1 {
     public static void main(String[] args) {
+        System.out.println("------- Task 1 -------");
         System.out.println("My wight on the moon: " + myWeightOnMoon() + " Н"); // Task 1
+        System.out.println("------- Task 2 -------");
         System.out.println("Massive {10, 20, 30, 40, 50, 60} increased 10%: " + java.util.Arrays.toString(increaseMassive())); // Task 2
-        System.out.println("Is palindrome? " + isPalindrome(56765)); // Task 3
+        System.out.println("------- Task 3 -------");
+        System.out.println("Is palindrome 56765? " + isPalindrome(56765)); // Task 3
+        System.out.println("------- Task 4 -------");
         evenNumbers(); // Task 4
+        System.out.println("------- Task 5 -------");
         oddNumbers(); // Task 5
+        System.out.println("------- Task 6 -------");
         evenNumbersFor(); // Task 6
+        System.out.println("------- Task 7 -------");
         System.out.println("Sum of numbers from 20 to 200: " + sumOfNumbers()); // Task 7
+        System.out.println("------- Task 8 -------");
         namesOfMonths();  // Task 8
+        System.out.println("------- Task 9 -------");
         reversParametrs(); // Task 9
+        System.out.println("------- Task 10 -------");
         sumTwoNumbers(); // Task 10
+        System.out.println("------- Task 11 -------");
         maxNumber(); // Task 11
+        System.out.println("------- Task 12 -------");
         trueFalse(); // Task 12
+        System.out.println("------- Task 13 -------");
         strConcat(); // Task 13
+        System.out.println("------- Task 14 -------");
         solveTwoNumbers(); // Task 14
+        System.out.println("------- Task 15 -------");
         getNumbersFor(); // Task 15 (for)
         getNumbersWhile(); // Task 15 (do while)
+        System.out.println("------- Task 16 -------");
         System.out.println(rowNumbersWithStep()); // Task 16
+        System.out.println("------- Task 17 -------");
         System.out.println(java.util.Arrays.toString(divisionMassive())); // Task 17
+        System.out.println("------- Task 18 -------");
         getDollars(); // Task 18
+        System.out.println("------- Task Advanced 2 -------");
         System.out.println(howMuchHoursMinSecInDay()); // Task Advanced 2
 
     }
@@ -32,9 +51,7 @@ public class HomeWork1 {
         double gEarth = 9.807;
         double gMoon = gEarth * 16 / 100;
         int myWeight = 52;
-        double fMoon;
-        fMoon = myWeight * gMoon;
-        return fMoon;
+        return myWeight * gMoon;
     }
 
     /* 2. Напишите метод, который будет увеличивать каждый элемент массива на 10%. */
@@ -108,51 +125,18 @@ public class HomeWork1 {
     /* 8. Пройти циклом по числам от 1 до 12 и вывести название месяца, соответствующее каждому числу (используя цикл и оператор if else) */
     private static void namesOfMonths() {
         for (int i = 1; i <= 12; i++) {
-            if (i == 1) {
-                System.out.println(i + " January");
-            } else {
-                if (i == 2) {
-                    System.out.println(i + " February");
-                } else {
-                    if (i == 3) {
-                        System.out.println(i + " March");
-                    } else {
-                        if (i == 4) {
-                            System.out.println(i + " April");
-                        } else {
-                            if (i == 5) {
-                                System.out.println(i + " May");
-                            } else {
-                                if (i == 6) {
-                                    System.out.println(i + " June");
-                                } else {
-                                    if (i == 7) {
-                                        System.out.println(i + " July");
-                                    } else {
-                                        if (i == 8) {
-                                            System.out.println(i + " August");
-                                        } else {
-                                            if (i == 9) {
-                                                System.out.println(i + " September");
-                                            } else {
-                                                if (i == 10) {
-                                                    System.out.println(i + " October");
-                                                } else {
-                                                    if (i == 11) {
-                                                        System.out.println(i + " November");
-                                                    } else {
-                                                        System.out.println(i + " December");
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            if (i == 1) System.out.println(i + " January");
+            else if (i == 2) System.out.println(i + " February");
+            else if (i == 3) System.out.println(i + " March");
+            else if (i == 4) System.out.println(i + " April");
+            else if (i == 5) System.out.println(i + " May");
+            else if (i == 6) System.out.println(i + " June");
+            else if (i == 7) System.out.println(i + " July");
+            else if (i == 8) System.out.println(i + " August");
+            else if (i == 9) System.out.println(i + " September");
+            else if (i == 10) System.out.println(i + " October");
+            else if (i == 11) System.out.println(i + " November");
+            else System.out.println(i + " December");
         }
     }
 
@@ -303,10 +287,10 @@ public class HomeWork1 {
     private static void getDollars() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the rubles: ");
-        int rubls = scan.nextInt();
-        double kurs = 2.10;
-        double res = rubls / kurs;
-        System.out.println("Dollars: " + res);
+        int rubles = scan.nextInt();
+        double rate = 2.10;
+        double res = Math.round(rubles / rate);
+        System.out.println("It is " + res + " dollars");
     }
 
     /* -----------------------------------------------------------------------------------------------------------------*/

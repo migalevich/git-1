@@ -1,35 +1,58 @@
 package homework4;
 
+import java.util.Arrays;
+
 public class TasksString {
     public static void main(String[] args) {
-        String s = "Mr. Darling used to boast to Wendy that her mother 764 not only loved 55.4 him but respected 55,6 him. He was one of those deep ones who know about stocks and shares. Of course no one really " +
-                "knows, but he quite seemed to know, and he often said stocks were up and shares were down in a 6 way that would have made any woman respect him.";
-        System.out.println(doFirstLetterBig(s)); // Task1
-        System.out.println(countPunctuationMarks(s)); // Task2
-        System.out.println(sumIntegers(s)); // Task3
-        System.out.println(replaceLetter(s, 5, '^')); // Task4
-        System.out.println(deletePartOfText(s, '“', '”')); // Task5
-        countingWords(s); // Task6
+        String s = "We have a saying in English “Manners maketh man”. “Maketh” is an old form of “makes” or “make”. So the expression means that, " +
+                "if you want to be a real man, you have to have good manners.\n" + "“Manners” means 55 the way that you behave to other people, " +
+                "particularly in public. If you have good manners you are polite and courteous. You remember 66 to say “please” and “thank you”." +
+                " You make people feel welcome and at ease. And if you have bad manners you are rude and discourteous? You say unpleasant things to " +
+                "people? You make them feel unwelcome and upset.";
+        System.out.println(s);
+//        System.out.println("------- Task 1 -------");
+//        //        System.out.println(doFirstLetterBig(s)); // Task1
+//        System.out.println("------- Task 2 -------");
+////        System.out.println(countPunctuationMarks(s)); // Task2
+//        System.out.println("------- Task 3 -------");
+////        System.out.println(sumIntegers(s)); // Task3
+//        System.out.println("------- Task 4 -------");
+////        System.out.println(replaceLetter(s, 5, '^')); // Task4
+//        System.out.println("------- Task 5 -------");
+//        //  System.out.println(deletePartOfText(s, '“', '”')); // Task5
+//        System.out.println("------- Task 6 -------");
+//        //  countingWords(s); // Task6
+//        System.out.println("------- Task 7 -------");
+//        // countingLettersType(s);
+        System.out.println("------- Task 8 -------");
+        getWordsByLength(s, 5);
 
     }
 
+    /* 1. Преобразовать текст так, чтобы каждое слово начиналось с заглавной буквы. */
     private static String doFirstLetterBig(String s) {
         String[] words = s.split(" ");
         String wordWithBigLetter = "";
+        char mark = '“';
         for (String word : words) {
-            wordWithBigLetter += Character.toUpperCase(word.charAt(0)) + word.substring(1) + " ";
+            if (word.charAt(0) == mark) {  /* дописать еще со скобкой случай */
+                wordWithBigLetter += word.substring(0, 1) + Character.toUpperCase(word.charAt(1)) + word.substring(2) + " ";
+            } else {
+                wordWithBigLetter += Character.toUpperCase(word.charAt(0)) + word.substring(1) + " ";
+            }
         }
         return wordWithBigLetter;
     }
 
+    /* 2. Подсчитать количество содержащихся в данном тексте знаков препинания */
     private static int countPunctuationMarks(String s) {
         int numberMarks = 0;
         char[] marks = {'.', ',', '-', ':', ';', '?', '!'}; // massive of punctuation marks
 
         for (int i = 0; i < s.length(); i++) {
             //System.out.println(s.charAt(i));
-            for (int j = 0; j < marks.length; j++) {
-                if (s.charAt(i) == marks[j]) {
+            for (char mark : marks) {
+                if (s.charAt(i) == mark) {
                     numberMarks++;
                 }
             }
@@ -43,8 +66,8 @@ public class TasksString {
         String[] words = s.split(" ");
         for (String word : words) {
             if (!word.contains(".") && !word.contains(",")) {
-                for (int j = 0; j < marks.length; j++) {
-                    if (word.charAt(0) == marks[j]) {
+                for (char mark : marks) {
+                    if (word.charAt(0) == mark) {
                         summ += Integer.parseInt(word);
                         //  System.out.println(Integer.parseInt(word));
                     }
@@ -94,13 +117,41 @@ public class TasksString {
             //  System.out.println("длинна = "+text.length());
             int k = 0;
             word2 = text.split(" ");
-            for (int i = 0; i < word2.length; i++) {
-                if (word2[i].toUpperCase().contains(word.toUpperCase())) {
+            for (String s : word2) {
+                if (s.toUpperCase().contains(word.toUpperCase())) {
                     k++;
                 }
             }
             System.out.println(word.toUpperCase() + " counter:" + k);
         }
+    }
+
+    /* 7. Найти, каких букв, гласных или согласных, больше в каждом предложении текста */
+    private static void countingLettersType(String text) {
+        text = text.replaceAll("\n", " "); //.replaceAll("[-+.^:,“”]", "");
+        char[] vowelsList = {'a', 'e', 'y', 'u', 'i', 'o'};
+        String[] sentences = text.split("[.!?]");
+        for (String sentence : sentences) {
+            int vowels = 0;
+            int consonant = 0;
+            String newSentence = sentence.replaceAll("[-+.^:,“”]", "").replaceAll("\\s", "").toLowerCase();
+            vowels = newSentence.replaceAll("[aeyuio]", "").length();
+            consonant = newSentence.length() - vowels;
+            System.out.println("Sentence has vowels = " + vowels + " consonant = " + consonant);
+        }
+    }
+
+    /* 8. Во всех вопросительных предложениях текста найти и напечатать без повторений слова заданной длины */
+    private static void getWordsByLength(String text, int len) {
+        text = text.replaceAll("\n", " "); //.replaceAll("[-+.^:,“”]", "");
+        String regex="A.+?";
+        String vowels = text.replaceAll("[regex]", "");
+        System.out.println(vowels);
+//        String[] sentences = text.split("[.!?]");
+//        System.out.println(Arrays.toString(sentences));
+//        for (String sentence : sentences) {
+//            System.out.println(sentence);
+//        }
     }
 
 }

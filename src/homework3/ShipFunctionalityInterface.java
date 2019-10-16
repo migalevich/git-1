@@ -9,8 +9,8 @@ public interface ShipFunctionalityInterface {
 
     int TEST_INTERFACE_VALUE = 10;
 
-    String fight();
 
+    String fight();
     String move();
 
     default String commentFunctionality(){
