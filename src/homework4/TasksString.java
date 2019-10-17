@@ -10,22 +10,22 @@ public class TasksString {
                 " You make people feel welcome and at ease. And if you have bad manners you are rude and discourteous? You say unpleasant things to " +
                 "people? You make them feel unwelcome and upset.";
         System.out.println(s);
-//        System.out.println("------- Task 1 -------");
-//        //        System.out.println(doFirstLetterBig(s)); // Task1
-//        System.out.println("------- Task 2 -------");
-////        System.out.println(countPunctuationMarks(s)); // Task2
-//        System.out.println("------- Task 3 -------");
-////        System.out.println(sumIntegers(s)); // Task3
-//        System.out.println("------- Task 4 -------");
-////        System.out.println(replaceLetter(s, 5, '^')); // Task4
-//        System.out.println("------- Task 5 -------");
-//        //  System.out.println(deletePartOfText(s, '“', '”')); // Task5
-//        System.out.println("------- Task 6 -------");
-//        //  countingWords(s); // Task6
-//        System.out.println("------- Task 7 -------");
-//        // countingLettersType(s);
+        System.out.println("------- Task 1 -------");
+        System.out.println(doFirstLetterBig(s)); // Task1
+        System.out.println("------- Task 2 -------");
+        System.out.println(countPunctuationMarks(s)); // Task2
+        System.out.println("------- Task 3 -------");
+        System.out.println(sumIntegers(s)); // Task3
+        System.out.println("------- Task 4 -------");
+        System.out.println(replaceLetter(s, 5, '^')); // Task4
+        System.out.println("------- Task 5 -------");
+        System.out.println(deletePartOfText(s, '“', '”')); // Task5
+        System.out.println("------- Task 6 -------");
+        countingWords(s); // Task6
+        System.out.println("------- Task 7 -------");
+        countingLettersType(s);
         System.out.println("------- Task 8 -------");
-        getWordsByLength(s, 5);
+        getWordsByLength(s, 3);
 
     }
 
@@ -112,7 +112,7 @@ public class TasksString {
     /* 6.  Найти и напечатать, сколько раз повторяется в тексте каждое слово, которое встречается в нем. */
     private static void countingWords(String text) {
         String[] word2;
-        text = text.replaceAll("\n", " ").replaceAll("[-+.^:,“”]", "");
+        text = text.replaceAll("\n", " ").replaceAll("[-+.^:,“”?]", "");
         for (String word : text.split(" ")) {
             //  System.out.println("длинна = "+text.length());
             int k = 0;
@@ -143,15 +143,24 @@ public class TasksString {
 
     /* 8. Во всех вопросительных предложениях текста найти и напечатать без повторений слова заданной длины */
     private static void getWordsByLength(String text, int len) {
-        text = text.replaceAll("\n", " "); //.replaceAll("[-+.^:,“”]", "");
-        String regex="A.+?";
-        String vowels = text.replaceAll("[regex]", "");
-        System.out.println(vowels);
-//        String[] sentences = text.split("[.!?]");
-//        System.out.println(Arrays.toString(sentences));
-//        for (String sentence : sentences) {
-//            System.out.println(sentence);
-//        }
+        text = text.replaceAll("\n", " ").replaceAll("[?]", "<question>?"); //.replaceAll("[-+.^:,“”]", "");
+        String[] sentences = text.replaceAll("[-+^:,“”]", "").split("[.!?]");
+        for (String sentence : sentences) {
+            String wordsLen = "";
+            if (sentence.endsWith("<question>")) { // choose questions
+                System.out.println("Question: " + sentence.replaceAll("<question>", "?"));
+                sentence = sentence.replaceAll("<question>", "").toLowerCase();
+                String[] words = sentence.split(" ");
+                for (String word : words) {
+                    if (word.length() == len) {
+                        if (!wordsLen.contains(word.trim().toLowerCase())) { // write words without duplicates
+                            wordsLen += word.toLowerCase() + " ";
+                        }
+                    }
+                }
+                System.out.println("Words by length " + len + " from question: " + wordsLen);
+            }
+        }
     }
 
 }
