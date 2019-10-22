@@ -129,7 +129,6 @@ public class TasksString {
     /* 7. Найти, каких букв, гласных или согласных, больше в каждом предложении текста */
     private static void countingLettersType(String text) {
         text = text.replaceAll("\n", " "); //.replaceAll("[-+.^:,“”]", "");
-        char[] vowelsList = {'a', 'e', 'y', 'u', 'i', 'o'};
         String[] sentences = text.split("[.!?]");
         for (String sentence : sentences) {
             int vowels = 0;
