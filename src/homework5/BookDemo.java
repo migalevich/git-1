@@ -1,5 +1,7 @@
 package homework5;
 
+import sun.reflect.generics.tree.Tree;
+
 import java.util.*;
 
 class BookDemo {
@@ -29,48 +31,82 @@ class BookDemo {
                 Вывести на экран информацию о книга (содержащихся в коллекции HashSet), название которых начинается с гласной буквы. */
         System.out.println("-------- Task 2 --------");
         HashSet<Book> list2 = new HashSet<Book>();
-        list2.add(new Book("It", "Steven", "King","Edwin", 432, 1986)); // Сти́вен Э́двин Кинг
-        list2.add(new Book("Insomnia","Steven", "King","Edwin",526, 1994));
-        list2.add(new Book("The Green Mile", "Steven", "King","Edwin", 432, 1996));
-        list2.add(new Book("Dreamcatcher", "Steven", "King","Edwin",256, 2001));
-        list2.add(new Book("Cell", "Steven", "King","Edwin", 256, 2006));
-        list2.add(new Book("Black House", "Steven", "King","Edwin", 256, 2001));
-        list2.add(new Book("Lisey’s Story", "Steven", "King","Edwin", 256, 2006));
-        list2.add(new Book("Joyland", "Steven", "King","Edwin", 256, 2013));
-        list2.add(new Book("Revival", "Steven", "King","Edwin", 256, 2014));
-        list2.add(new Book("The Outsider", "Steven", "King","Edwin",256, 2018));
-        list2.add(new Book("Angels & Demons","Dan", "Brown","", 567, 2000));
-        list2.add(new Book("Deception Point","Dan", "Brown","", 458, 2001));
-        list2.add(new Book("The Da Vinci Code","Dan", "Brown", "",258, 2003));
-        list2.add(new Book("War and Peace", "Lev","Tolstoy","Nicolaevich", 1457, 1867));
-        list2.add(new Book("The Gambler", "Fedor","Dostoevsky","Michailovich", 999, 1866));
-        list2.add(new Book("The Master and Margarita", "Michail","Bulgakov","Afanasievich", 587, 1937));
-        list2.add(new Book("And Quite Flows the Don", "Michail","Sholohov","Alexandrovich", 956, 1925));
-        list2.add(new Book("Tom Sawyer’s Conspiracy","Mark", "Twain","", 784, 1967));
-        list2.add(new Book("Mark Twain’s Autobiography","Mark", "Twain","", 787, 1924));
-        list2.add(new Book("Twelve Men", "Theodore", "Dreiser","Herman",432, 1919));
-        list2.add(new Book("The \"Genius\"", "Theodore", "Dreiser","Herman", 1526, 1915));
-        list2.add(new Book("An American Tragedy", "Theodore", "Dreiser","Herman", 432, 1926));
-        list2.add(new Book("The Stoic", "Theodore", "Dreiser","Herman", 432, 1947)); // Theodore Herman Albert Dreiser
-        list2.add(new Book("The Angel of death", "Michail","Lermontov","Urevich", 145, 1857)); //Михаи́л Ю́рьевич Ле́рмонтов
-        list2.add(new Book("Daemon", "Michail","Lermontov","Urevich",156, 1857));
+        list2.add(new Book("It", "Steven", "King", "Edwin", 432, 1986)); // Сти́вен Э́двин Кинг
+        list2.add(new Book("Insomnia", "Steven", "King", "Edwin", 526, 1994));
+        list2.add(new Book("The Green Mile", "Steven", "King", "Edwin", 432, 1996));
+        list2.add(new Book("Dreamcatcher", "Steven", "King", "Edwin", 256, 2001));
+        list2.add(new Book("Cell", "Steven", "King", "Edwin", 256, 2006));
+        list2.add(new Book("Black House", "Steven", "King", "Edwin", 256, 2001));
+        list2.add(new Book("Lisey’s Story", "Steven", "King", "Edwin", 256, 2006));
+        list2.add(new Book("Joyland", "Steven", "King", "Edwin", 256, 2013));
+        list2.add(new Book("Revival", "Steven", "King", "Edwin", 256, 2014));
+        list2.add(new Book("Revival", "Steven", "King", "Edwin", 256, 2014));
+        list2.add(new Book("Revival", "Steven", "King", "Edwin", 256, 2014));
+        list2.add(new Book("Revival", "Steven", "King", "Edwin", 256, 2014));
+        list2.add(new Book("Revival", "Steven", "King", "Edwin", 256, 2014));
+        list2.add(new Book("Revival", "Steven", "King", "Edwin", 256, 2014));
+        list2.add(new Book("The Outsider", "Steven", "King", "Edwin", 256, 2018));
+        list2.add(new Book("Angels & Demons", "Dan", "Brown", "", 567, 2000));
+        list2.add(new Book("Deception Point", "Dan", "Brown", "", 458, 2001));
+        list2.add(new Book("The Da Vinci Code", "Dan", "Brown", "", 258, 2003));
+        list2.add(new Book("War and Peace", "Lev", "Tolstoy", "Nicolaevich", 1457, 1867));
+        list2.add(new Book("The Gambler", "Fedor", "Dostoevsky", "Michailovich", 999, 1866));
+        list2.add(new Book("The Master and Margarita", "Michail", "Bulgakov", "Afanasievich", 587, 1937));
+        list2.add(new Book("And Quite Flows the Don", "Michail", "Sholohov", "Alexandrovich", 956, 1925));
+        list2.add(new Book("Tom Sawyer’s Conspiracy", "Mark", "Twain", "", 784, 1967));
+        list2.add(new Book("Mark Twain’s Autobiography", "Mark", "Twain", "", 787, 1924));
+        list2.add(new Book("Twelve Men", "Theodore", "Dreiser", "Herman", 432, 1919));
+        //    list2.add(new Book("The \"Genius\"", "Theodore", "Dreiser","Herman", 1526, 1915));
+        //    list2.add(new Book("An American Tragedy", "Theodore", "Dreiser","Herman", 432, 1926));
+        //    list2.add(new Book("The Stoic", "Theodore", "Dreiser","Herman", 432, 1947)); // Theodore Herman Albert Dreiser
+        //    list2.add(new Book("The Angel of death", "Michail","Lermontov","Urevich", 145, 1857)); //Михаи́л Ю́рьевич Ле́рмонтов
+        //    list2.add(new Book("Daemon", "Michail","Lermontov","Urevich",156, 1857));
 
+        System.out.println("------ First vowel letter  ---------");
         for (Book book : list2) {
             if (book.getName().toLowerCase().substring(0, 1).matches("[aeyuio]")) {
                 System.out.println(book);
             }
         }
 
-        System.out.println("------ sort ---------");
+
         /* 3. Отсортировать коллекцию из задания 2 по фамилии, затем по имени, по отчеству (эти поля надо добавить в класс Book для автора книги). */
-        List<Book> bookList = new LinkedList<Book>();
-        bookList.addAll(list2);
-        Collections.<Book>sort(bookList);
-        for (Book b : bookList) {
+        System.out.println("------ Task 3 ---------");
+        System.out.println("------ SORT by >> Second name, First name, Third name ---------");
+        Set<Book> booksList = new TreeSet<>(list2);
+        for (Book b : booksList) {
             System.out.println(b);
         }
-      //  Collections.sort(list2);
-        //list2.sort(comparingString(Book::getAuthorFirstName));
+
+     /* 4. Создать экземпляр класса TreeSet, поместить в него объекты класса Student(надо его спроектировать). Вывести на экран информацию о каждом
+     чётном в списке студенте, каждого нечётного студента удалить из коллекции. */
+        System.out.println("------ Task 4 ---------");
+        Set<Student> studentsList = new TreeSet<>();
+        studentsList.add(new Student("Pavel", "Ivanov", 28));
+        studentsList.add(new Student("Anna", "Kotova", 24));
+        studentsList.add(new Student("Irina", "Petrona", 29));
+        studentsList.add(new Student("Artem", "Lykov", 34));
+        studentsList.add(new Student("Elena", "Juk", 33));
+        studentsList.add(new Student("Andrey", "Kubrick", 35));
+
+
+        Iterator<Student> iterator = studentsList.iterator();
+
+        int i = 1;
+        while (iterator.hasNext()) {
+            if (i % 2 == 0) {
+                System.out.println(iterator.next());
+            } else {
+                iterator.next();
+                iterator.remove();
+            }
+            i++;
+        }
+
+        /* 5. Создать экземпляр класса HashMap, разместить в нём следующую информацию: в качестве ключа  - категория товара в каталоге (catalog.onliner.by) в качестве значения - количество товаров
+         в данной категории. Сортировать коллекцию по количеству товаров в каждой категории, найти категорию в которой содержится максимальное количество товаров, удалить все категории в которых
+         нет ни одного товара (предусмотреть такие категории при заполнении коллекции) */
+
 
     } // main
 }

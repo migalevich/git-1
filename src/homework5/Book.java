@@ -1,9 +1,9 @@
 package homework5;
 
-import java.util.Comparator;
 import java.util.Objects;
 
-public class Book implements Comparable<Book> {
+public class Book implements Comparable<Book>
+{
     private String name;
     private String authorFirstName;
     private String authorSecondName;
@@ -114,10 +114,24 @@ public class Book implements Comparable<Book> {
                 '}';
     }
 
-    @Override
-    public int compareTo(Book p) {
-        return authorSecondName.compareTo(p.authorSecondName);
-    }
 
+
+    @Override
+    public int compareTo(Book o) {
+        int result;
+        result = authorSecondName.compareTo(o.authorSecondName);
+        if(result != 0) return result;
+        result = authorFirstName.compareTo(o.authorFirstName);
+        if(result != 0) return result;
+        result = authorThirdName.compareTo(o.authorThirdName);
+        if(result != 0) return result;
+        result = name.compareTo(o.name);
+        if(result != 0) return result;
+        result = (year==o.year?1:0);
+        if(result != 0) return result;
+        result =  (numberPages==o.numberPages?1:0);
+        if(result != 0) return result;
+        return result;
+    }
 
 }
