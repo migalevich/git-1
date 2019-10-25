@@ -1,7 +1,5 @@
 package homework5;
 
-import sun.reflect.generics.tree.Tree;
-
 import java.util.*;
 
 class BookDemo {
@@ -106,8 +104,57 @@ class BookDemo {
         /* 5. Создать экземпляр класса HashMap, разместить в нём следующую информацию: в качестве ключа  - категория товара в каталоге (catalog.onliner.by) в качестве значения - количество товаров
          в данной категории. Сортировать коллекцию по количеству товаров в каждой категории, найти категорию в которой содержится максимальное количество товаров, удалить все категории в которых
          нет ни одного товара (предусмотреть такие категории при заполнении коллекции) */
+        System.out.println("------ Task 5 ---------");
+
+        Map<String, Integer> catalogMap = new HashMap<String, Integer>();
+        catalogMap.put("Electronics", 3586);
+        catalogMap.put("Beauty and Sport", 2423);
+        catalogMap.put("Computers and Nets", 5782);
+        catalogMap.put("Household Appliances", 67423);
+        catalogMap.put("Construction and Repair", 4532);
+        catalogMap.put("Work and Office", 0);
+
+        System.out.println(catalogMap);
+
+        System.out.println("Find the max value");
+//        Collection<Integer> catalogMapValues = catalogMap.values();
+        ArrayList<Integer> catalogMapValues = new ArrayList<>(catalogMap.values());
+
+
+//        Map<String, Integer> catalogMapTree = new TreeMap<>(catalogMap);
+
+//        catalogMapTree.entrySet()
+//                .stream()
+//                .sorted(Map.Entry.comparingByValue())
+//                .forEach(System.out::println);
+
+//        System.out.println("------ entry entry entry ---------");
+
+//
+//        List catalogMapList = new ArrayList(catalogMap.entrySet());
+//        Collections.sort(catalogMapList);
+//        System.out.println(catalogMapList);
 
 
     } // main
+
+
+//    public static <K, V extends Comparable<V>> Map<K, V>  sortMapByValues(final Map<K, V> map) {
+//        Comparator<K> valueComparator = new Comparator<K>() {
+//            public int compare(K k1, K k2) {
+//                int compare =  map.get(k1).compareTo(map.get(k2));
+//                if (compare == 0)
+//                    return 1;
+//                else
+//                    return compare;
+//            }
+//        };
+//
+//        Map<K, V> sortedByValues = new TreeMap<K, V>(valueComparator);
+//        sortedByValues.putAll(map);
+//        return sortedByValues;
+//    }
+
+
 }
 
