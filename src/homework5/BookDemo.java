@@ -8,19 +8,22 @@ class BookDemo {
         /* 1. Создать экземпляр класса LinkedList, разместить в нём 3 ссылки на объекты класса Book. List< Book > list = new LinkedList< Book >();
                 Вывести информацию о всех книгах. Программно удалить из коллекции вторую книгу, вывести на экран информацию о оставшихся книгах. */
         System.out.println("-------- Task 1 --------");
-        List<Book> list = new ArrayList<Book>();
+        //  List<Book> list = new ArrayList<Book>();
+        List<Book> list = new LinkedList<Book>();
         list.add(0, new Book("Anna Karenina", "Tolstoy", 545, 1877));
         list.add(1, new Book("Idiot", "Dostoevsky", 432, 1869));
         list.add(2, new Book("Angels and Demons", "Brawn", 587, 2000));
+
         /* information about books*/
+        System.out.println(">> Information about all books:");
         for (Book book : list) {
             System.out.println(book);
         }
 
         list.remove(2);
 
-        /* information about books after remove*/
-        System.out.println("List of books after removing:");
+        /* information about books after removing*/
+        System.out.println(">> List of books after removing second book:");
         for (Book book : list) {
             System.out.println(book);
         }
@@ -60,7 +63,7 @@ class BookDemo {
         //    list2.add(new Book("The Angel of death", "Michail","Lermontov","Urevich", 145, 1857)); //Михаи́л Ю́рьевич Ле́рмонтов
         //    list2.add(new Book("Daemon", "Michail","Lermontov","Urevich",156, 1857));
 
-        System.out.println("------ First vowel letter  ---------");
+        System.out.println(">> Books which name start from vowel letter:");
         for (Book book : list2) {
             if (book.getName().toLowerCase().substring(0, 1).matches("[aeyuio]")) {
                 System.out.println(book);
@@ -70,7 +73,7 @@ class BookDemo {
 
         /* 3. Отсортировать коллекцию из задания 2 по фамилии, затем по имени, по отчеству (эти поля надо добавить в класс Book для автора книги). */
         System.out.println("------ Task 3 ---------");
-        System.out.println("------ SORT by >> Second name, First name, Third name ---------");
+        System.out.println(">> SORTed collection by -> Second name, First name, Third name:");
         Set<Book> booksList = new TreeSet<>(list2);
         for (Book b : booksList) {
             System.out.println(b);
@@ -87,9 +90,9 @@ class BookDemo {
         studentsList.add(new Student("Elena", "Juk", 33));
         studentsList.add(new Student("Andrey", "Kubrick", 35));
 
+        System.out.println(">> Information about every even student(every odd student deleted):");
 
         Iterator<Student> iterator = studentsList.iterator();
-
         int i = 1;
         while (iterator.hasNext()) {
             if (i % 2 == 0) {
@@ -109,6 +112,7 @@ class BookDemo {
         Map<String, Integer> catalogMap = new HashMap<String, Integer>();
         catalogMap.put("Electronics", 3586);
         catalogMap.put("Beauty and Sport", 2423);
+        catalogMap.put("Beauty and Sport2", 2423);
         catalogMap.put("Computers and Nets", 5782);
         catalogMap.put("Household Appliances", 67423);
         catalogMap.put("Construction and Repair", 4532);
@@ -116,45 +120,52 @@ class BookDemo {
 
         System.out.println(catalogMap);
 
-        System.out.println("Find the max value");
-//        Collection<Integer> catalogMapValues = catalogMap.values();
-        ArrayList<Integer> catalogMapValues = new ArrayList<>(catalogMap.values());
+        System.out.println(">> Find the category with max value:");
+        int max = 0;
+        String categoryMaxValue = null;
+        for (Map.Entry<String, Integer> entry : catalogMap.entrySet()) {
+            // System.out.println(entry);
+            if (entry.getValue() > max) {
+                categoryMaxValue = entry.getKey();
+                max = entry.getValue();
+            }
+        }
+        System.out.println(categoryMaxValue);
 
 
-//        Map<String, Integer> catalogMapTree = new TreeMap<>(catalogMap);
+        System.out.println(">> Deleting the category with value = 0:");
+        Iterator iteratorMap = (Iterator) catalogMap.values().iterator();
 
-//        catalogMapTree.entrySet()
-//                .stream()
-//                .sorted(Map.Entry.comparingByValue())
-//                .forEach(System.out::println);
+        while (iteratorMap.hasNext()) {
+            if ((int) iteratorMap.next() == 0) {
+                iteratorMap.remove();
+            }
+        }
+        System.out.println(catalogMap);
 
-//        System.out.println("------ entry entry entry ---------");
+        System.out.println(">> Sorted catalog:");
 
-//
-//        List catalogMapList = new ArrayList(catalogMap.entrySet());
-//        Collections.sort(catalogMapList);
-//        System.out.println(catalogMapList);
+        Map<String, Integer> catalogMapTree = new TreeMap<>(catalogMap);
+        SortedSet<Map.Entry<String, Integer>> sortedSet = new TreeSet<>(
+                new Comparator<Map.Entry<String, Integer>>() {
+                    @Override
+                    public int compare(Map.Entry<String, Integer> e1,
+                                       Map.Entry<String, Integer> e2) {
+                        if (e1.getValue() < e2.getValue()) {
+                            return -1;
+                        } else if ((int)e1.getValue()== e2.getValue()) {
+                            return e1.getKey().compareTo(e2.getKey());
+                        } else {
+                            return 1;
+                        }
+                    }
+                });
+
+        sortedSet.addAll(catalogMapTree.entrySet());
+        System.out.println(sortedSet);
 
 
     } // main
-
-
-//    public static <K, V extends Comparable<V>> Map<K, V>  sortMapByValues(final Map<K, V> map) {
-//        Comparator<K> valueComparator = new Comparator<K>() {
-//            public int compare(K k1, K k2) {
-//                int compare =  map.get(k1).compareTo(map.get(k2));
-//                if (compare == 0)
-//                    return 1;
-//                else
-//                    return compare;
-//            }
-//        };
-//
-//        Map<K, V> sortedByValues = new TreeMap<K, V>(valueComparator);
-//        sortedByValues.putAll(map);
-//        return sortedByValues;
-//    }
-
 
 }
 
