@@ -1,6 +1,7 @@
 package threadsTest;
 
 import javax.naming.InsufficientResourcesException;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Operations {
@@ -68,6 +69,8 @@ public class Operations {
             try {
                 if (acc2.getLock().tryLock(WAIT_SEC, TimeUnit.SECONDS))
                     try {
+                        Random randNumber = new Random();
+                        Thread.sleep(randNumber.nextInt(6));
                         acc1.withdraw(amount);
                         acc2.deposit(amount);
                     } finally {

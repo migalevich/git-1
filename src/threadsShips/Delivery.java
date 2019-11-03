@@ -1,10 +1,7 @@
 package threadsShips;
 
-import java.util.Arrays;
-import java.util.concurrent.Exchanger;
-
 public class Delivery {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         CargoShip ship1 = new CargoShip("Riga","Stockholm", new int[]{45, 55, 65, 75},"Avrora");
         CargoShip ship2 = new CargoShip("Tallin","Turku", new int[]{33, 66, 99, 88},"Anna");
 
@@ -16,6 +13,8 @@ public class Delivery {
         new Thread(ship1).start();
       //  Thread.sleep(1000);
         new Thread(ship2).start();
+
+       // Thread.join();
 
     }
 }

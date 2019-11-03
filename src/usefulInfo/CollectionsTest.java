@@ -110,19 +110,19 @@ public class CollectionsTest {
         PriorityQueue<Integer> myQPr = new PriorityQueue<>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                return 0;
+                if (o1.equals(o2)) return 0;
+                if (o1 < o2) return -1;
+                return 1;
             }
         });
-//
-//        while (!myQPr.isEmpty()){
-//            // myQ.poll();
-//            System.out.println(myQPr.poll());
-//        }
 
-        while (!myQPr.isEmpty()){
-            System.out.println(myQPr.poll());
+        for (int i = 5; i > 0; i--) {
+            myQPr.add(i);
         }
 
+        while (!myQPr.isEmpty()) {
+            System.out.println(myQPr.poll());
+        }
 
     }
 
