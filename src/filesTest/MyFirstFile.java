@@ -6,9 +6,9 @@ import java.util.*;
 public class MyFirstFile {
     public static void main(String[] args) throws IOException, FileNotFoundException {
 
-        try (FileWriter writerFile = new FileWriter("test.txt");
-             FileReader readerFile = new FileReader("test.txt");
-             FileWriter writerNewFile = new FileWriter("test.txt")) {
+        try (Writer writerFile = new FileWriter("test.txt");
+             Reader readerFile = new FileReader("test.txt");
+             Writer writerNewFile = new FileWriter("test.txt")) {
 
             int l = (int) (Math.random() * 4 + 7); // array length
             int[] array = new int[l];
@@ -16,7 +16,7 @@ public class MyFirstFile {
             for (int j = 0; j < array.length; j++) {
                 array[j] = (int) (Math.random() * 5 + 7);
                 String s = Integer.toString(array[j]);
-                writerFile.write(s + " ");   // writes the bytes
+                writerFile.write(s + " ");
             }
 
             System.out.println(Arrays.toString(array));
