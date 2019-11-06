@@ -1,11 +1,9 @@
-package filesTest;
+package homework6;
 
 
 import java.io.*;
 
-import java.util.*;
-
-public class FileStr {
+public class DemoTask2 {
     public static void main(String[] args) throws Exception {
         try (Writer writerFile = new FileWriter("test2.txt");
              Reader readerFile = new FileReader("test2.txt");

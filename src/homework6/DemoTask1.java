@@ -1,14 +1,14 @@
-package filesTest;
+package homework6;
 
 import java.io.*;
 import java.util.*;
 
-public class MyFirstFile {
+public class DemoTask1 {
     public static void main(String[] args) throws IOException, FileNotFoundException {
 
-        try (Writer writerFile = new FileWriter("test.txt");
-             Reader readerFile = new FileReader("test.txt");
-             Writer writerNewFile = new FileWriter("test.txt")) {
+        try (Writer writerFile = new FileWriter("test1.txt");
+             Reader readerFile = new FileReader("test1.txt");
+             Writer writerNewFile = new FileWriter("test1.txt")) {
 
             int l = (int) (Math.random() * 4 + 7); // array length
             int[] array = new int[l];
