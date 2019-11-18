@@ -11,7 +11,6 @@ public class DemoTask2 {
              BufferedReader bufferedReader = new BufferedReader(readerFile);
         ) {
 
-
             String line;
             String text = "";
             while ((line = bufferedReader.readLine()) != null) {

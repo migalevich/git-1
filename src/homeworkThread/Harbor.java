@@ -6,23 +6,28 @@ import sun.misc.Queue;
 import java.util.*;
 import java.util.concurrent.*;
 
-public class Harbor implements Runnable{
-    private volatile int counter = 0;
-    private Ship data;
+public class Harbor implements Runnable {
+   // private volatile int counter = 0;
+    private CargoShip data;
     public static final Exchanger<Parcel> EXCHANGER = new Exchanger<>(); // создаем обменник с типом Parcel
-    Parcel parcel;
 
-    public int getCounter() {
-        return counter;
+    public Harbor() {
     }
+
+    public Harbor(CargoShip data) {
+        this.data = data;
+    }
+
 
     @Override
     public void run() {
         try {
-            Thread.sleep(1000);
+        //    Thread.sleep(1000);
             System.out.println();
             System.out.println("Корабли меняются грузом!");
-            parcel = EXCHANGER.exchange(parcel);
+         //   Parcel parcel = data.getParcel();
+         //   System.out.println(parcel);
+           // parcel = EXCHANGER.exchange(parcel);
            // parcels[1] = EXCHANGER.exchange(parcels[1]);         //   System.out.println(Thread.currentThread());
             Thread.sleep(1000);
         } catch (InterruptedException e) {

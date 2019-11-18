@@ -9,6 +9,9 @@ public class Parcel extends CargoShip {
         this.description = description;
     }
 
+    public Parcel() {
+    }
+
     public int getShipId() {
         return shipId;
     }

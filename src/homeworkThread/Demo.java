@@ -10,7 +10,7 @@ public class Demo {
         //   Random r = new Random();
         List listCargoShip = new LinkedList();
         String cargo;
-        for (int i = 1; i < 7; i++) {
+        for (int i = 1; i < 5; i++) {
             switch (i) {
                 case 1:
                     cargo = "fish";
@@ -39,13 +39,10 @@ public class Demo {
 
 
         ExecutorService service = Executors.newFixedThreadPool(listCargoShip.size());
-        List<Future<String>> futures = service.invokeAll(listCargoShip);
+        List futures = service.invokeAll(listCargoShip);
         Thread.sleep(400);
 
         service.shutdown();
-
-
-
 
 
     }

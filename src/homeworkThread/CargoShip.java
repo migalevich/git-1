@@ -6,10 +6,9 @@ import java.util.concurrent.*;
 
 public class CargoShip implements Callable {
     public int shipId;
-    Parcel parcel;
+    public Parcel parcel;
     private static final CyclicBarrier BARRIER = new CyclicBarrier(2);
-    // private static final CyclicBarrier BARRIER2 = new CyclicBarrier(2, harbor2);
-    // public static final Exchanger<Parcel> EXCHANGER = new Exchanger<>(); // создаем обменник с типом Parcel
+    public static final Exchanger<Parcel> EXCHANGER = new Exchanger<>(); // создаем обменник с типом Parcel
 
     public CargoShip() {
     }
@@ -45,22 +44,15 @@ public class CargoShip implements Callable {
 
     @Override
     public Object call() throws Exception {
-        System.out.println(" The Cargo ship '" + getShipId() + "' near the HARBOR1 with " + getParcel());
-        Harbor harbor1 = new Harbor();
-        Harbor harbor2 = new Harbor();
 
- //       harbor1.add(CargoShip);
+        System.out.println(" The Cargo ship '" + getShipId() + "' near the HARBOR with " + getParcel());
+        BARRIER.await();
+        Thread.sleep(1000);
+       // System.out.println(" The Cargo change parcels ");
+        parcel = EXCHANGER.exchange(parcel);
+        System.out.println(" The Cargo ship '" + getShipId() + "' LEAVE the HARBOR with " + getParcel());
+        BARRIER.reset();
 
-  //      this.harbor1.add(this.shipId);
-//        harbor.getCounter();
-//        BARRIER1.await();
-        System.out.println(" The Cargo ship '" + getShipId() + "' LEAVE the HARBOR1 with " + getParcel());
-        System.out.println(" The Cargo ship '" + getShipId() + "' near the HARBOR2 with " + getParcel());
-//        harbor.getCounter();
- //       BARRIER2.await();
-        System.out.println(" The Cargo ship '" + getShipId() + "' LEAVE the HARBOR2 with " + getParcel());
-
-        //  System.out.println(harbor.getCounter());
         return null;
     }
 
