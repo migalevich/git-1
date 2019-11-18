@@ -6,9 +6,12 @@ import java.util.*;
 public class DemoTask1 {
     public static void main(String[] args) throws IOException, FileNotFoundException {
 
-        try (Writer writerFile = new FileWriter("test1.txt");
-             Reader readerFile = new FileReader("test1.txt");
-             Writer writerNewFile = new FileWriter("test1.txt")) {
+        writeFile(); // write random array to File
+        writeNewFile(readFile()); // write new array to File
+    }
+
+    private static void writeFile() {
+        try (Writer writerFile = new FileWriter("test1.txt")) {
 
             int l = (int) (Math.random() * 4 + 7); // array length
             int[] array = new int[l];
@@ -19,12 +22,18 @@ public class DemoTask1 {
                 writerFile.write(s + " ");
             }
 
-            System.out.println(Arrays.toString(array));
-            writerFile.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static List<Integer> readFile() {
+        List<Integer> ints = new ArrayList<Integer>();
+        try (Reader readerFile = new FileReader("test1.txt")) {
 
             /* Read file with class Scanner */
             Scanner scan = new Scanner(readerFile);
-            List<Integer> ints = new ArrayList<Integer>();
+
             int i = 0;
             while (scan.hasNextInt()) {
                 ints.add(scan.nextInt());
@@ -46,17 +55,23 @@ public class DemoTask1 {
                 }
             });
             System.out.println(ints);
-            readerFile.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return ints;
 
+    }
 
-            writerNewFile.write(ints.toString().replaceAll("[-+.^:,“”?]","").replace("[","").replace("]",""));
+    private static void writeNewFile(List<Integer> integerList) {
+        try (Writer writerNewFile = new FileWriter("test1.txt")) {
+
+            writerNewFile.write(integerList.toString().replaceAll("[-+.^:,“”?]", "").replace("[", "").replace("]", ""));
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
-
     }
 
 
-}
+} // class
+
