@@ -34,10 +34,8 @@ public class DemoTask1 {
             /* Read file with class Scanner */
             Scanner scan = new Scanner(readerFile);
 
-            int i = 0;
             while (scan.hasNextInt()) {
                 ints.add(scan.nextInt());
-                i++;
             }
 
             ints.sort(new Comparator<Integer>() {
@@ -73,5 +71,5 @@ public class DemoTask1 {
     }
 
 
-} // class
+}
 

@@ -114,7 +114,6 @@ public class TasksString {
         String[] word2;
         text = text.replaceAll("\n", " ").replaceAll("[-+.^:,“”?]", "");
         for (String word : text.split(" ")) {
-            //  System.out.println("длинна = "+text.length());
             int k = 0;
             word2 = text.split(" ");
             for (String s : word2) {

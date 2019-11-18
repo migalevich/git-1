@@ -52,8 +52,6 @@ public class ShipDemo {
         int j = 0;
         for (int i = 0; i< ships.length - 1; i++) {
             if (ships[i].getOwnerFirstName().equals("Alex")) {
-                //     shipsFiltered[j] = new Ship(ships[i].getmodel(), ships[i].getPrice(), ships[i].getOwnerFirstName(), ships[i].getOwnerSecondName());
-                // shipFiltered[j]= new Ship();
                 shipsFiltered[j] = ships[i];
                 j++;
             }

@@ -10,9 +10,12 @@ public class ParagraphMiddleware extends Middleware {
         String line;
         while ((line = bufferedReader.readLine()) != null) {
             String[] strArray = line.split("\n");
-            i++;
+
+            for (String ignored : strArray) {
+                i++;
+            }
         }
-       // bufferedReader.reset();
+
         System.out.println(i + " Paragraphs in the text");
         return checkNext(bufferedReader);
     }

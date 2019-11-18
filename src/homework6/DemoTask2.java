@@ -12,20 +12,20 @@ public class DemoTask2 {
         ) {
 
             String line;
-            String text = "";
+            StringBuilder text = new StringBuilder();
             while ((line = bufferedReader.readLine()) != null) {
                 String[] strArray = line.split(" ");
                 String temp;
                 temp = strArray[0];
                 strArray[0] = strArray[strArray.length - 1].replace(".", "");
                 strArray[strArray.length - 1] = temp + ".";
-                for (int i = 0; i < strArray.length; i++) {
-                    text = text + " " + strArray[i];
+                for (String s : strArray) {
+                    text.append(" ").append(s);
                 }
-                text += '\n';
+                text.append('\n');
             }
 
-            reWriteFile(text);
+            reWriteFile(text.toString());
 
         } catch (IOException e) {
             System.out.println(e.getMessage());

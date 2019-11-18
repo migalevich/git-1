@@ -5,7 +5,9 @@ import java.io.*;
 
 public class DemoTask3 {
     public static void main(String[] args) {
+
         writeFile();
+
         try (FileInputStream fi = new FileInputStream("test3.txt");
              InputStreamReader readerFile = new InputStreamReader(fi);
              BufferedReader bufferedReader = new BufferedReader(readerFile)
@@ -13,6 +15,7 @@ public class DemoTask3 {
 
             bufferedReader.mark(fi.available() + 1);
 
+            /* Chain of Responsibilities Pattern */
             Middleware middleware = new ParagraphMiddleware();
             middleware.linkWith(new SentencesMiddleware(bufferedReader)).linkWith(new WordsMiddleware(bufferedReader));
 

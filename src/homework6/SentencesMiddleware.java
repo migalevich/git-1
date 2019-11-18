@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class SentencesMiddleware extends Middleware {
-    BufferedReader bufferedReader;
+    private BufferedReader bufferedReader;
 
-    public SentencesMiddleware(BufferedReader bufferedReader) {
+    SentencesMiddleware(BufferedReader bufferedReader) {
         this.bufferedReader = bufferedReader;
     }
 
