@@ -1,6 +1,9 @@
 package homework2;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class TasksMissives {
     public static void main(String[] args) {
@@ -199,8 +202,8 @@ public class TasksMissives {
                 stringArrayIns[i] = stringArray[i - 1];
             }
         }
-        System.out.println("Array before inserting element ins on " + (position+1) + " position = " + Arrays.toString(stringArray));
-        System.out.println("Array after inserting element ins on "+ (position+1) +" position = " + Arrays.toString(stringArrayIns));
+        System.out.println("Array before inserting element ins on " + (position + 1) + " position = " + Arrays.toString(stringArray));
+        System.out.println("Array after inserting element ins on " + (position + 1) + " position = " + Arrays.toString(stringArrayIns));
     }
 
     //Task 10. Write a Java program to find the maximum and minimum value of an array.

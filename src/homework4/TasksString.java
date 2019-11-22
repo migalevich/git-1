@@ -1,7 +1,5 @@
 package homework4;
 
-import java.util.Arrays;
-
 public class TasksString {
     public static void main(String[] args) {
         String s = "We have a saying in English “Manners maketh man”. “Maketh” is an old form of “makes” or “make”. So the expression means that, " +

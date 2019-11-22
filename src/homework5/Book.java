@@ -2,8 +2,7 @@ package homework5;
 
 import java.util.Objects;
 
-public class Book implements Comparable<Book>
-{
+public class Book implements Comparable<Book> {
     private String name;
     private String authorFirstName;
     private String authorSecondName;
@@ -83,7 +82,6 @@ public class Book implements Comparable<Book>
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        // if(o != book) {
         if (numberPages == book.numberPages &&
                 year == book.year &&
                 Objects.equals(name, book.name) &&
@@ -93,7 +91,6 @@ public class Book implements Comparable<Book>
         ) {
             return true;
         }
-        //   }
         return false;
     }
 
@@ -115,22 +112,21 @@ public class Book implements Comparable<Book>
     }
 
 
-
     @Override
     public int compareTo(Book o) {
         int result;
         result = authorSecondName.compareTo(o.authorSecondName);
-        if(result != 0) return result;
+        if (result != 0) return result;
         result = authorFirstName.compareTo(o.authorFirstName);
-        if(result != 0) return result;
+        if (result != 0) return result;
         result = authorThirdName.compareTo(o.authorThirdName);
-        if(result != 0) return result;
+        if (result != 0) return result;
         result = name.compareTo(o.name);
-        if(result != 0) return result;
-        result = (year==o.year?1:0);
-        if(result != 0) return result;
-        result =  (numberPages==o.numberPages?1:0);
-        if(result != 0) return result;
+        if (result != 0) return result;
+        result = (year == o.year ? 1 : 0);
+        if (result != 0) return result;
+        result = (numberPages == o.numberPages ? 1 : 0);
+        if (result != 0) return result;
         return result;
     }
 

@@ -1,9 +1,8 @@
 package homeworkStream;
 
-
-
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.stream.Stream;
 
 
@@ -33,15 +32,14 @@ public class Demo {
             charList.add(c);
         }
 
-        listPersons.stream().filter(person -> charList.toString().contains(person.getName().substring(0,1))).forEach(System.out::println);
+        listPersons.stream().filter(person -> charList.toString().contains(person.getName().substring(0, 1))).forEach(System.out::println);
 
         /* Task 3 */
-        System.out.println("List of persons whose age is greater than the average age of all people:");
 
         double averAge = listPersons.stream().mapToInt(Person::getAge).average().getAsDouble();
-        System.out.println("averAge = " + averAge);
+        System.out.println("List of persons whose age is greater than the average age (" + averAge + ") of all people:");
 
-        listPersons.stream().filter(person -> person.getAge() > averAge ).distinct().forEach(System.out::println);
+        listPersons.stream().filter(person -> person.getAge() > averAge).distinct().forEach(System.out::println);
 
     }
 }

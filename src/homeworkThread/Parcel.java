@@ -1,10 +1,10 @@
 package homeworkThread;
 
 public class Parcel extends CargoShip {
-     public int shipId;
-     public String description;
+    private int shipId;
+    private String description;
 
-    public Parcel(int shipId, String description) {
+    Parcel(int shipId, String description) {
         this.shipId = shipId;
         this.description = description;
     }

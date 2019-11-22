@@ -1,7 +1,15 @@
 package homework6;
 
-import java.io.*;
-import java.util.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
 
 public class DemoTask1 {
     public static void main(String[] args) throws IOException, FileNotFoundException {
@@ -10,6 +18,7 @@ public class DemoTask1 {
         writeNewFile(readFile()); // write new array to File
     }
 
+    /* Write integer list from the file */
     private static void writeFile() {
         try (Writer writerFile = new FileWriter("test1.txt")) {
 
@@ -27,6 +36,7 @@ public class DemoTask1 {
         }
     }
 
+    /* Read and sorted integer list from the file */
     private static List<Integer> readFile() {
         List<Integer> ints = new ArrayList<Integer>();
         try (Reader readerFile = new FileReader("test1.txt")) {
@@ -60,6 +70,7 @@ public class DemoTask1 {
 
     }
 
+    /* Rewrite sorted integer list to the file */
     private static void writeNewFile(List<Integer> integerList) {
         try (Writer writerNewFile = new FileWriter("test1.txt")) {
 

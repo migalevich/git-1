@@ -1,19 +1,19 @@
 package homeworkThread;
 
-import homework3.Ship;
-
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.Exchanger;
 
 public class CargoShip implements Callable {
-    public int shipId;
-    public Parcel parcel;
-    private static final CyclicBarrier BARRIER = new CyclicBarrier(2);
-    public static final Exchanger<Parcel> EXCHANGER = new Exchanger<>(); // создаем обменник с типом Parcel
+    private int shipId;
+    private Parcel parcel;
+    private static final CyclicBarrier BARRIER = new CyclicBarrier(2); // create barrier
+    private static final Exchanger<Parcel> EXCHANGER = new Exchanger<>(); // create exchanger with type Parcel
 
-    public CargoShip() {
+    CargoShip() {
     }
 
-    public CargoShip(int shipId, Parcel parcel) {
+    CargoShip(int shipId, Parcel parcel) {
         this.shipId = shipId;
         this.parcel = parcel;
     }
@@ -26,7 +26,7 @@ public class CargoShip implements Callable {
         this.shipId = shipId;
     }
 
-    public Parcel getParcel() {
+    private Parcel getParcel() {
         return parcel;
     }
 
@@ -47,9 +47,12 @@ public class CargoShip implements Callable {
 
         System.out.println(" The Cargo ship '" + getShipId() + "' near the HARBOR with " + getParcel());
         BARRIER.await();
-        Thread.sleep(1000);
-       // System.out.println(" The Cargo change parcels ");
         parcel = EXCHANGER.exchange(parcel);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println(" The Cargo ship '" + getShipId() + "' LEAVE the HARBOR with " + getParcel());
         BARRIER.reset();
 

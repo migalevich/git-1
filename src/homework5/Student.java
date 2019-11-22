@@ -2,7 +2,7 @@ package homework5;
 
 import java.util.Objects;
 
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student> {
     private String firstName;
     private String secondName;
     private int age;
@@ -64,12 +64,12 @@ public class Student implements Comparable<Student>{
     @Override
     public int compareTo(Student o) {
         int result;
-        result =firstName.compareTo(o.firstName);
-        if(result != 0) return result;
-        result =secondName.compareTo(o.secondName);
-        if(result != 0) return result;
-        result =(age==o.age?1:0);
-        if(result != 0) return result;
+        result = firstName.compareTo(o.firstName);
+        if (result != 0) return result;
+        result = secondName.compareTo(o.secondName);
+        if (result != 0) return result;
+        result = (age == o.age ? 1 : 0);
+        if (result != 0) return result;
         return result;
     }
 

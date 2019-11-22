@@ -1,12 +1,46 @@
 package homework6;
 
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.util.Objects;
 
 public class DemoTask2 {
     public static void main(String[] args) throws Exception {
 
-        writeFile();
+        /* text */
+        String text = "All children, except one, grow up.\n"+
+                "They soon know that they will grow up, and the way Wendy knew was this.\n"+
+                "One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother.";
+
+
+        writeFile(text, "test2.txt");
+        reWriteFile(Objects.requireNonNull(readAndFormatting()).toString());
+
+    }
+
+    /* Write text to the file */
+    public static void writeFile(String text, String fileName) {
+        try (Writer writerFile = new FileWriter(fileName)) {
+
+            writerFile.write(text);
+//            writerFile.write("All children, except one, grow up.");
+//            writerFile.append('\n');
+//            writerFile.write("They soon know that they will grow up, and the way Wendy knew was this.");
+//            writerFile.append('\n');
+//            writerFile.write("One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother.");
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /* Read text from file and formatting (swap the first and last word) */
+    private static StringBuilder readAndFormatting() {
+
         try (Reader readerFile = new FileReader("test2.txt");
              BufferedReader bufferedReader = new BufferedReader(readerFile);
         ) {
@@ -24,31 +58,14 @@ public class DemoTask2 {
                 }
                 text.append('\n');
             }
-
-            reWriteFile(text.toString());
-
+            return text;
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
-
+        return null;
     }
 
-
-    private static void writeFile() {
-        try (Writer writerFile = new FileWriter("test2.txt")) {
-
-            writerFile.write("All children, except one, grow up.");
-            writerFile.append('\n');
-            writerFile.write("They soon know that they will grow up, and the way Wendy knew was this.");
-            writerFile.append('\n');
-            writerFile.write("One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother.");
-
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
+    /* Rewrite formatted text to the file */
     private static void reWriteFile(String text) {
         try (Writer writerFileNew = new FileWriter("test2.txt")) {
 

@@ -1,8 +1,5 @@
 package homework3;
 
-import java.sql.SQLOutput;
-import java.util.*;
-
 public class ShipDemo {
     public static void main(String[] args) {
 
@@ -12,7 +9,6 @@ public class ShipDemo {
         ships[2] = new Ship("M65", 564, "Anna", "Romanova", ShipType.WARSHIP);
         ships[3] = new Ship("R89", 234, "Ivan", "Kim", ShipType.CIVIL_SHIP);
         ships[4] = new Ship("H32", 456, "Alex", "Petrov", ShipType.CIVIL_SHIP);
-//        System.out.println(Arrays.toString(ships));
 
         ships[1].getSound();
         System.out.println(ships[2].move());
@@ -41,7 +37,7 @@ public class ShipDemo {
         }
 
         int lengthNewArray = 0;
-        for (int i = 0; i< ships.length - 1; i++) {
+        for (int i = 0; i < ships.length - 1; i++) {
             if (ships[i].getOwnerFirstName().equals("Alex")) {
                 lengthNewArray++;
             }
@@ -50,7 +46,7 @@ public class ShipDemo {
         // filter array
         Ship[] shipsFiltered = new Ship[lengthNewArray];
         int j = 0;
-        for (int i = 0; i< ships.length - 1; i++) {
+        for (int i = 0; i < ships.length - 1; i++) {
             if (ships[i].getOwnerFirstName().equals("Alex")) {
                 shipsFiltered[j] = ships[i];
                 j++;
@@ -65,7 +61,7 @@ public class ShipDemo {
 
         /* Yacht extends Ship */
         Yacht yacht1 = new Yacht();
-        Yacht yacht2 = new Yacht("Y11",564,"Pavel","Shved",25,162.5, ShipType.WARSHIP);
+        Yacht yacht2 = new Yacht("Y11", 564, "Pavel", "Shved", 25, 162.5, ShipType.WARSHIP);
 
         Yacht[] yachts = new Yacht[2];
         yachts[0] = yacht1;
@@ -81,4 +77,7 @@ public class ShipDemo {
 
     }
 
+    private static void createShips(int count){
+
+    }
 }
