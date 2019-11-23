@@ -8,12 +8,12 @@ public class Yacht extends Ship {
     private static int crew;
 
 
-    public Yacht() {
+    Yacht() {
         System.out.println("Yacht default constructor");
         crew++;
     }
 
-    public Yacht(String model, int price, String ownerFirstName, String ownerSecondName, int speed, double length, ShipType shipType) {
+    Yacht(String model, int price, String ownerFirstName, String ownerSecondName, int speed, double length, ShipType shipType) {
         super(model, price, ownerFirstName, ownerSecondName, shipType);
         this.speed = speed;
         this.length = length;
@@ -36,7 +36,7 @@ public class Yacht extends Ship {
         this.length = length;
     }
 
-    public static int getCrew() {
+    static int getCrew() {
         return crew;
     }
 

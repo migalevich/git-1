@@ -4,11 +4,9 @@ public class ShipDemo {
     public static void main(String[] args) {
 
         Ship[] ships = new Ship[5];
-        ships[0] = new Ship("H34", 346, "Alex", "Ivanov", ShipType.WARSHIP);
-        ships[1] = new Ship("T55", 525, "Irina", "Kotova", ShipType.CIVIL_SHIP);
-        ships[2] = new Ship("M65", 564, "Anna", "Romanova", ShipType.WARSHIP);
-        ships[3] = new Ship("R89", 234, "Ivan", "Kim", ShipType.CIVIL_SHIP);
-        ships[4] = new Ship("H32", 456, "Alex", "Petrov", ShipType.CIVIL_SHIP);
+        for (int i = 0; i < 5; i++) {
+            ships[i] = createShips(i);
+        }
 
         ships[1].getSound();
         System.out.println(ships[2].move());
@@ -20,44 +18,10 @@ public class ShipDemo {
         }
 
         // sort array by price
-        for (int i = 0; i < ships.length - 1; i++) {
-            for (int j = 0; j < ships.length - 1; j++) {
-                if (ships[j].getPrice() > ships[j + 1].getPrice()) {
-                    Ship tmp = ships[j];
-                    ships[j] = ships[j + 1];
-                    ships[j + 1] = tmp;
-                }
-            }
-        }
-
-        //print sort array
-        System.out.println("Sorted by price array:");
-        for (Ship ship : ships) {
-            System.out.println(ship);
-        }
-
-        int lengthNewArray = 0;
-        for (int i = 0; i < ships.length - 1; i++) {
-            if (ships[i].getOwnerFirstName().equals("Alex")) {
-                lengthNewArray++;
-            }
-        }
+        sortByPrice(ships);
 
         // filter array
-        Ship[] shipsFiltered = new Ship[lengthNewArray];
-        int j = 0;
-        for (int i = 0; i < ships.length - 1; i++) {
-            if (ships[i].getOwnerFirstName().equals("Alex")) {
-                shipsFiltered[j] = ships[i];
-                j++;
-            }
-        }
-
-        System.out.println("Filtered by owner first name 'Alex' array:");
-        for (Ship s : shipsFiltered) {
-            System.out.println(s);
-        }
-
+        filterByName(ships, "Alex");
 
         /* Yacht extends Ship */
         Yacht yacht1 = new Yacht();
@@ -74,10 +38,57 @@ public class ShipDemo {
 
         System.out.println(Yacht.getCrew()); /* Yachts counter */
 
-
     }
 
-    private static void createShips(int count){
+    private static Ship createShips(int i) {
 
+        String[] modelArray = {"H34", "T55", "M65", "R89", "H32", "G67", "I99"};
+        int[] priceArray = {525, 564, 346, 234, 456, 765, 534};
+        String[] ownerFirstNameArray = {"Alex", "Irina", "Anna", "Ivan", "Alex", "Pavel", "Kate"};
+        String[] ownerSecondName = {"Ivanov", "Kotova", "Romanova", "Kim", "Petrov", "Shved", "Juk"};
+
+        return new Ship(modelArray[i], priceArray[i], ownerFirstNameArray[i], ownerSecondName[i], i / 2 == 1 ? ShipType.WARSHIP : ShipType.CIVIL_SHIP);
+    }
+
+    private static void sortByPrice(Ship[] ships) {
+
+        for (int i = 0; i < ships.length - 1; i++) {
+            for (int j = 0; j < ships.length - 1; j++) {
+                if (ships[j].getPrice() > ships[j + 1].getPrice()) {
+                    Ship tmp = ships[j];
+                    ships[j] = ships[j + 1];
+                    ships[j + 1] = tmp;
+                }
+            }
+        }
+        //print sort array
+        System.out.println("Sorted by price array:");
+        for (Ship ship : ships) {
+            System.out.println(ship);
+        }
+    }
+
+    private static void filterByName(Ship[] ships, String name) {
+        int lengthNewArray = 0;
+        for (int i = 0; i < ships.length - 1; i++) {
+            if (ships[i].getOwnerFirstName().equals(name)) {
+                lengthNewArray++;
+            }
+        }
+
+        // filter array
+        Ship[] shipsFiltered = new Ship[lengthNewArray];
+        int j = 0;
+        for (int i = 0; i < ships.length - 1; i++) {
+            if (ships[i].getOwnerFirstName().equals(name)) {
+                shipsFiltered[j] = ships[i];
+                j++;
+            }
+        }
+
+        System.out.println("Filtered by owner first name 'Alex' array:");
+        for (Ship s : shipsFiltered) {
+            System.out.println(s);
+        }
     }
 }

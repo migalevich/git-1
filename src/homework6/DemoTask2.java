@@ -27,11 +27,6 @@ public class DemoTask2 {
         try (Writer writerFile = new FileWriter(fileName)) {
 
             writerFile.write(text);
-//            writerFile.write("All children, except one, grow up.");
-//            writerFile.append('\n');
-//            writerFile.write("They soon know that they will grow up, and the way Wendy knew was this.");
-//            writerFile.append('\n');
-//            writerFile.write("One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother.");
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
