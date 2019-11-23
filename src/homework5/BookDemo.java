@@ -21,7 +21,7 @@ class BookDemo {
                 Вывести информацию о всех книгах. Программно удалить из коллекции вторую книгу, вывести на экран информацию о оставшихся книгах. */
         System.out.println("-------- Task 1 --------");
 
-        List<Book> list = new LinkedList<Book>();
+        List<Book> list = new LinkedList<>();
         addBooksToCollection(list, 3);
 
 
@@ -64,7 +64,7 @@ class BookDemo {
          нет ни одного товара (предусмотреть такие категории при заполнении коллекции) */
         System.out.println("------ Task 5 ---------");
 
-        Map<String, Integer> catalogMap = new HashMap<String, Integer>();
+        Map<String, Integer> catalogMap = new HashMap<>();
         createCatalog(catalogMap);
 
         System.out.println(catalogMap);
